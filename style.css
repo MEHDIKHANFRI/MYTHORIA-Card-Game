@@ -8,6 +8,15 @@
     background-attachment: fixed;
     background-size: cover;
 }
+.background-accueil-2{
+    min-height: 100vh;
+    margin: 0;
+    background-image: url("img/backgrand-2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 .nav {
     position: fixed;
@@ -39,4 +48,45 @@
 .button:hover{
     transform: scale(1.1);
 }
+
+
+.header {
+    min-height: 76px;
+    padding: 0 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: #030303;
+    font-family: Arial, sans-serif;
+}
+
+.sousheader {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: #ffd477;
+}
+
+
+
+
 
