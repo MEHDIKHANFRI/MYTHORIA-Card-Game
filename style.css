@@ -11,7 +11,7 @@
 .background-accueil-2{
     min-height: 100vh;
     margin: 0;
-    background-image: url("img/backgrand-2.png");
+    background-image: url("img/BACKGROUND-2.png");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -111,16 +111,18 @@ h2 {
 }
 
 .hero {
-    min-height: 100px;
     display: flex;
+    align-items: center;
     justify-content: center;
     padding: 40px 20px;
     text-align: center;
+    box-sizing: border-box;
+    min-height: calc(150vh - 90px);
 }
 
 .hero-texte {
-    padding: 20px;
-    
+    max-width: 760px;
+    padding: 24px;
 }
 
 .hero h1 {
@@ -133,10 +135,71 @@ h2 {
 .hero p {
     font-size: 21px;
     color: aliceblue;
+    text-shadow: 0 2px 12px #000, 0 0 24px #000;
     margin-bottom: 20px;
     margin-top: 20px;
+    background-color: #171119;
 }
-.button-accueil{
+.hero-texte .button {
+    display: inline-block;
+    margin: 8px;
+    text-decoration: none;
+}
+
+.button-accueil {
+    margin-top: 8px;
+}
+.section-accueil {
+    padding: 55px 25px;
+    text-align: center;
+}
+
+.section-accueil h2 {
+    margin-top: 0;
+    color: #ffd477;
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+.liste-cartes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.petite-carte,
+.carte-produit,
+.carte-legendaire {
+    width: 220px;
+    padding: 15px;
+    border: 1px solid #76552d;
+    background-color: #171119;
+}
+
+.petite-carte h3,
+.carte-produit h3,
+.carte-legendaire h3 {
+    color: #ffd477;
+}
+
+.carte-produit img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+}
+
+.carte-legendaire img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.carte-produit a,
+.pied-page a {
+    color: #ffd477;
+}
+
+.lien-collection {
     margin-top: 30px;
 }
 
