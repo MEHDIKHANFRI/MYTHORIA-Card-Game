@@ -17,10 +17,17 @@
     background-attachment: fixed;
     background-size: cover;
 }
+h2 {
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffd477;
+    display: flex;
+    justify-content: center;
+}
 
 .nav {
     position: fixed;
-    bottom: 80px;
+    bottom: 20px;
     padding:20px;
 }
 
@@ -87,6 +94,50 @@
 }
 
 
+.list{
+    min-width: 170px;
+    padding: 16px 24px;
+    border: 2px solid;
+    border-radius: 14px;
+    background: rgba(18, 8, 24, 0.9);
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+    border-color: #f6a928;
+    color: #ffd477;
+    box-shadow: 0 0 12px #e58a16;
+}
 
+.hero {
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.hero-texte {
+    padding: 20px;
+    
+}
+
+.hero h1 {
+    margin: 0;
+    color: #ffd477;
+    font-family: Georgia, serif;
+    font-size: 80px;
+}
+
+.hero p {
+    font-size: 21px;
+    color: aliceblue;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.button-accueil{
+    margin-top: 30px;
+}
 
 
