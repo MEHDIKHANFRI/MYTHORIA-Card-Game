@@ -21,7 +21,22 @@
     justify-content: center;
     gap: 16px;
 }
-
-
-
+.button {
+    min-width: 170px;
+    padding: 16px 24px;
+    border: 2px solid;
+    border-radius: 14px;
+    background: rgba(18, 8, 24, 0.9);
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+    border-color: #f6a928;
+    color: #ffd477;
+    box-shadow: 0 0 12px #e58a16;
+}
+.button:hover{
+    transform: scale(1.1);
+}
 
