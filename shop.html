@@ -16,6 +16,32 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  
+  <header class="top">
+        <nav class="nav">
+
+            <a class="brand" href="index.html">
+                MYTHORIA
+                <small>CHRONIQUES DU VOILE</small>
+            </a>
+
+            <div class="links">
+                <a href="index.html">Univers</a>
+                <a href="shop.html">Boutique</a>
+                <a href="opening.html">Ouverture</a>
+                <a href="collection.html">Grimoire</a>
+                <a href="myDeck.html">Mon deck</a>
+                
+            </div>
+
+            <button class="pendingBtn" onclick="openPending()">Mes boosters <span id="pendingCount">0</span></button>
+
+            <button class="cartBtn" onclick="openCart()">
+                Panier
+                <span id="cartCount">0</span>
+                <span id="cartTotal">0,00 €</span>
+            </button>
+
+        </nav>
+  </header>
 </body>
 </html>

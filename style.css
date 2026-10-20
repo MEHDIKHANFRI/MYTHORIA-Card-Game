@@ -1,0 +1,27 @@
+
+.background-acceuil {
+    min-height: 100vh;
+    margin: 0;
+    background-image: url("img/background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.nav {
+    position: fixed;
+    bottom: 80px;
+    padding:20px;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+
+
+
