@@ -4,52 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mythoria — Chroniques du Voile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="background-accueil-2">
-    <header class="header">
-        <a class="sousheader" href="index.html">MYTHORIA</a>
+<body class="background-accueil-2 !bg-scroll">
+    <header class="min-h-[76px] px-[30px] flex items-center justify-between gap-6 bg-[#030303] font-[Arial,sans-serif]">
+        <a class="text-white text-[25px] font-bold no-underline" href="index.html">MYTHORIA</a>
         <nav>
-            <ul class="menu">
-                <li><a href="accueil.html">Accueil</a></li>
-                <li><a href="shop.html">Boutique</a></li>
-                <li><a href="opening.html">Ouverture</a></li>
-                <li><a href="collection.html">Grimoire</a></li>
-                <li><a href="myDeck.html">Mon deck</a></li>
+            <ul class="flex items-center gap-7 m-0 p-0 list-none">
+                <li><a class="text-white  hover:text-[#ffd477]" href="accueil.html">Accueil</a></li>
+                <li><a class="text-white  hover:text-[#ffd477]" href="shop.html">Boutique</a></li>
+                <li><a class="text-white  hover:text-[#ffd477]" href="opening.html">Ouverture</a></li>
+                <li><a class="text-white  hover:text-[#ffd477]" href="collection.html">Grimoire</a></li>
+                <li><a class="text-white  hover:text-[#ffd477]" href="myDeck.html">Mon deck</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-texte">
-                <p>Le Voile s'ouvre. Quelle légende vas-tu écrire?</p>
-                <a class="button button-accueil" href="shop.html">Découvrir les boosters</a>
-                <a class="button button-gold" href="collection.html">Ouvrir mon grimoire</a>
+        <section class="flex items-center justify-center px-5 pt-10 pb-44 text-center box-border  ">
+            <div class="p-10px ">
+                <p class="text-[20px] text-[aliceblue] [text-shadow:0_2px_12px_#000,0_0_24px_#000] mb-5 mt-5 bg-[#171119]">Dans un monde dévoré par les ténèbres, chaque carte porte une promesse.
+                    <br>Collectionnez les héros, invoquez les créatures et forgez votre destin.</p>
+                <a class="min-w-[180px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 " href="shop.html">Découvrir les boosters</a>
+                <a class="min-w-[170px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 " href="collection.html">Ouvrir mon grimoire</a>
             </div>
         </section>
-        <section class="section-accueil">
-            <h2>Les boosters disponibles</h2>
-            <div class="liste-cartes">
-                <article class="carte-produit">
-                    <img src="img/carte1.png" alt="Booster violet avec une étoile magique">
-                    <h3>Booster du Voile</h3>
-                    <a href="shop.html">Voir la boutique</a>
+        <section class="px-[25px] pt-[260px] pb-[55px] text-center">
+            <h2 class="mt-0 text-[#ffd477] font-[Georgia,serif] text-[30px] flex justify-center bg-[rgba(18,8,24,0.9)]">Les boosters disponibles</h2>
+            <div class="flex justify-center gap-5">
+                <article class="w-[220px] p-[15px] border border-[#76552d] rounded-[12px] bg-[#171119] ">
+                    <img class="w-full h-[280px] object-contain" src="img/carte1.png" alt="Booster violet avec une étoile magique">
+                    <h3 class="mb-[5px] text-[#ffd477]">Booster du Voile</h3>
+                    <a class="min-w-[170px] border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 " href="shop.html">Voir la boutique</a>
                 </article>
-                <article class="carte-produit">
-                    <img src="img/carte2.png" alt="Booster vert avec un royaume fantastique">
-                    <h3>Booster des Royaumes</h3>
-                    <a href="shop.html">Voir la boutique</a>
+                <article class="w-[220px] p-[15px] border border-[#76552d] rounded-[12px] bg-[#171119]">
+                    <img class="w-full h-[280px] object-contain" src="img/carte2.png" alt="Booster vert avec un royaume fantastique">
+                    <h3 class="mb-[5px] text-[#ffd477]">Booster des Royaumes</h3>
+                    <a class="min-w-[170px]  border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 " href="shop.html">Voir la boutique</a>
                 </article>
-                <article class="carte-produit">
-                    <img src="img/carte3 (2).png" alt="Booster vert avec un griffon doré">
-                    <h3>Booster des Gardiens</h3>
-                    <a href="shop.html">Voir la boutique</a>
+                <article class="w-[220px] p-[15px] border border-[#76552d] rounded-[12px] bg-[#171119]">
+                    <img class="w-full h-[280px] object-contain" src="img/carte3 (2).png" alt="Booster vert avec un griffon doré">
+                    <h3 class="mb-[5px] text-[#ffd477]">Booster des Gardiens</h3>
+                    <a class="min-w-[170px]  border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 " href="shop.html">Voir la boutique</a>
                 </article>
-                <article class="carte-produit">
-                    <img src="img/carte4.png" alt="Booster sombre aux reflets violets">
-                    <h3>Booster des Ombres</h3>
-                    <a href="shop.html">Voir la boutique</a>
+                <article class="w-[220px] p-[15px] border border-[#76552d] rounded-[12px] bg-[#171119]">
+                    <img class="w-full h-[280px] object-contain" src="img/carte4.png" alt="Booster sombre aux reflets violets">
+                    <h3 class="mb-[5px] text-[#ffd477]">Booster des Ombres</h3>
+                    <a class="min-w-[170px]  border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 " href="shop.html">Voir la boutique</a>
                 </article>
             </div>
         </section>
@@ -58,3 +60,12 @@
         
 </body>
 </html>
+
+
+
+
+
+
+
+
+
