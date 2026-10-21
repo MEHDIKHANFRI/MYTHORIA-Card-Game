@@ -110,3 +110,11 @@ const cartes = [
     element: "colorless",
   }
 ];
+
+
+let ajouter = document.querySelectorAll("#ajouter");
+let compteur = document.querySelector("#cart");
+let totalAffiche = document.querySelector("#cartTotal");
+let panier = document.createElement("ul");
+let total = 0;
+let nombreArticles = 0;
