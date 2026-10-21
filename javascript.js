@@ -118,3 +118,17 @@ let totalAffiche = document.querySelector("#cartTotal");
 let panier = document.createElement("ul");
 let total = 0;
 let nombreArticles = 0;
+
+ for (let i = 0; i < ajouter.length; i++) {
+  ajouter[i].addEventListener("click", function () {
+    let carte = ajouter[i].parentElement;
+    let nom = carte.querySelector("span").textContent;
+    let textePrix = carte.querySelector("#prix").textContent;
+    let prix = parseInt(textePrix.replace("DH", ""));
+
+total = total + prix;
+nombreArticles = nombreArticles + 1;
+compteur.textContent = nombreArticles;
+totalAffiche.textContent = total + ",00DH";
+  });
+}
