@@ -114,7 +114,9 @@ const catalogue = document.querySelector("main");
 const compteur = document.querySelector("#cart");
 const totalSpan = document.querySelector("#cartTotal");
 const panier = document.createElement("ul");
-
+let total = 0;
+let nombreArticles = 0;
+let prixAjoutes = [];
 
 compteur.parentElement.appendChild(panier);
 
@@ -133,4 +135,24 @@ for (let i = 0; i < boutons.length; i++) {
   }
 }
 
+function afficherPanier() {
+  compteur.textContent = nombreArticles;
+  totalSpan.textContent = total + ",00DH";
+}
 
+function ajouterProduit(titre, prix) {
+  total = total + prix;
+  nombreArticles = nombreArticles + 1;
+  prixAjoutes.push(prix);
+  afficherPanier();
+}
+
+function supprimerProduit() {
+  if (prixAjoutes.length === 0) {
+    return;
+  }
+  const prix = prixAjoutes.pop();
+  total = total - prix;
+  nombreArticles = nombreArticles - 1;
+  afficherPanier();
+}
