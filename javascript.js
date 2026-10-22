@@ -110,25 +110,27 @@ const cartes = [
     element: "colorless",
   }
 ];
+const catalogue = document.querySelector("main");
+const compteur = document.querySelector("#cart");
+const totalSpan = document.querySelector("#cartTotal");
+const panier = document.createElement("ul");
 
 
-let ajouter = document.querySelectorAll("#ajouter");
-let compteur = document.querySelector("#cart");
-let totalAffiche = document.querySelector("#cartTotal");
-let panier = document.createElement("ul");
-let total = 0;
-let nombreArticles = 0;
+compteur.parentElement.appendChild(panier);
 
- for (let i = 0; i < ajouter.length; i++) {
-  ajouter[i].addEventListener("click", function () {
-    let carte = ajouter[i].parentElement;
-    let nom = carte.querySelector("span").textContent;
-    let textePrix = carte.querySelector("#prix").textContent;
-    let prix = parseInt(textePrix.replace("DH", ""));
-    
-total = total + prix;
-nombreArticles = nombreArticles + 1;
-compteur.textContent = nombreArticles;
-totalAffiche.textContent = total + ",00DH";
-  });
+const panier2 = compteur.parentElement.parentElement;
+const boutons = panier2.querySelectorAll("button");
+let boutonVider;
+let boutonSupprimer;
+
+for (let i = 0; i < boutons.length; i++) {
+  if (boutons[i].textContent.trim() === "Vider le panier") {
+    boutonVider = boutons[i];
+  }
+
+  if (boutons[i].textContent.trim() === "Supprimer") {
+    boutonSupprimer = boutons[i];
+  }
 }
+
+
