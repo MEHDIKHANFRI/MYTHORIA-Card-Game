@@ -126,7 +126,7 @@ let boutonVider;
 let boutonSupprimer;
 
 for (let i = 0; i < boutons.length; i++) {
-  if (boutons[i].textContent.trim() === "Vider le panier") {
+  if (boutons[i].textContent.trim() === "Acheter") {
     boutonVider = boutons[i];
   }
 
@@ -162,8 +162,16 @@ catalogue.addEventListener("click", function(e) {
     const titre = produit.querySelector("span").textContent.trim();
     const textePrix = produit.querySelector(".prix").textContent;
     const prix = parseInt(textePrix.replace("DH", ""));
+    const champQuantite = produit.querySelector("input");
+    let quantite = Number(champQuantite.value);
 
-    ajouterProduit(titre, prix);
+    if (champQuantite.value === "") {
+      quantite = 1;
+    }
+
+    for (let i = 0; i < quantite; i++) {
+      ajouterProduit(titre, prix);
+    }
   }
 });
 
