@@ -122,12 +122,12 @@ compteur.parentElement.appendChild(panier);
 
 const panier2 = compteur.parentElement.parentElement;
 const boutons = panier2.querySelectorAll("button");
-let boutonVider;
+let boutonAcheter;
 let boutonSupprimer;
 
 for (let i = 0; i < boutons.length; i++) {
   if (boutons[i].textContent.trim() === "Acheter") {
-    boutonVider = boutons[i];
+    boutonAcheter = boutons[i];
   }
 
   if (boutons[i].textContent.trim() === "Supprimer") {
@@ -181,8 +181,8 @@ if (boutonSupprimer) {
   });
 }
 
-if (boutonVider) {
-  boutonVider.addEventListener("click", function() {
+if (boutonAcheter) {
+  boutonAcheter.addEventListener("click", function() {
     panier.innerHTML = "";
     total = 0;
     nombreArticles = 0;
