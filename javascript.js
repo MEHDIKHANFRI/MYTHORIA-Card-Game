@@ -125,7 +125,7 @@ let nombreArticles = 0;
     let nom = carte.querySelector("span").textContent;
     let textePrix = carte.querySelector("#prix").textContent;
     let prix = parseInt(textePrix.replace("DH", ""));
-
+    
 total = total + prix;
 nombreArticles = nombreArticles + 1;
 compteur.textContent = nombreArticles;
