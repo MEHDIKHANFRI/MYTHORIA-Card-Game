@@ -156,3 +156,29 @@ function supprimerProduit() {
   nombreArticles = nombreArticles - 1;
   afficherPanier();
 }
+catalogue.addEventListener("click", function(e) {
+  if (e.target.classList.contains("ajouter")) {
+    const produit = e.target.closest(".booster-card");
+    const titre = produit.querySelector("span").textContent.trim();
+    const textePrix = produit.querySelector(".prix").textContent;
+    const prix = parseInt(textePrix.replace("DH", ""));
+
+    ajouterProduit(titre, prix);
+  }
+});
+
+if (boutonSupprimer) {
+  boutonSupprimer.addEventListener("click", function() {
+    supprimerProduit();
+  });
+}
+
+if (boutonVider) {
+  boutonVider.addEventListener("click", function() {
+    panier.innerHTML = "";
+    total = 0;
+    nombreArticles = 0;
+    prixAjoutes = [];
+    afficherPanier();
+  });
+}
