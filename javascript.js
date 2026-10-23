@@ -113,15 +113,9 @@ const cartes = [
 const catalogue = document.querySelector("main");
 const compteur = document.querySelector("#cart");
 const totalSpan = document.querySelector("#cartTotal");
-const panier = document.createElement("ul");
-let total = 0;
-let nombreArticles = 0;
-let prixAjoutes = [];
-
-compteur.parentElement.appendChild(panier);
-
-const panier2 = compteur.parentElement.parentElement;
-const boutons = panier2.querySelectorAll("button");
+const listePanier = document.querySelector("#cartItems");
+const boutons = document.querySelectorAll("button");
+let produitsPanier = [];
 let boutonAcheter;
 let boutonSupprimer;
 
@@ -129,64 +123,51 @@ for (let i = 0; i < boutons.length; i++) {
   if (boutons[i].textContent.trim() === "Acheter") {
     boutonAcheter = boutons[i];
   }
-
-  if (boutons[i].textContent.trim() === "Supprimer") {
+  if (boutons[i].textContent.trim() === "Vider le panier") {
     boutonSupprimer = boutons[i];
   }
 }
 
-function afficherPanier() {
-  compteur.textContent = nombreArticles;
-  totalSpan.textContent = total + ",00DH";
-}
 
-function ajouterProduit(titre, prix) {
-  total = total + prix;
-  nombreArticles = nombreArticles + 1;
-  prixAjoutes.push(prix);
-  afficherPanier();
-}
-
-function supprimerProduit() {
-  if (prixAjoutes.length === 0) {
-    return;
-  }
-  const prix = prixAjoutes.pop();
-  total = total - prix;
-  nombreArticles = nombreArticles - 1;
-  afficherPanier();
-}
 catalogue.addEventListener("click", function(e) {
   if (e.target.classList.contains("ajouter")) {
-    const produit = e.target.closest(".booster-card");
-    const titre = produit.querySelector("span").textContent.trim();
-    const textePrix = produit.querySelector(".prix").textContent;
-    const prix = parseInt(textePrix.replace("DH", ""));
-    const champQuantite = produit.querySelector("input");
-    let quantite = Number(champQuantite.value);
+    const booster = e.target.closest(".booster-card");
+    const titre = booster.querySelector("span").textContent.trim();
+    const prixTexte = booster.querySelector(".prix").textContent;
+    const prix = parseInt(prixTexte.replace("DH", ""));
+    const champQuantite = booster.querySelector("input");
+    let quantite = parseInt(champQuantite.value);
 
-    if (champQuantite.value === "") {
+    if (isNaN(quantite) || quantite < 1) {
       quantite = 1;
+      champQuantite.value = 1;
     }
+
+    const image = booster.parentElement.parentElement.querySelector("img").getAttribute("src");
 
     for (let i = 0; i < quantite; i++) {
-      ajouterProduit(titre, prix);
+      produitsPanier.push({ titre: titre, prix: prix, image: image });
     }
+
+    afficherPanier();
   }
 });
 
 if (boutonSupprimer) {
   boutonSupprimer.addEventListener("click", function() {
-    supprimerProduit();
+    produitsPanier = [];
+    afficherPanier();
   });
 }
 
 if (boutonAcheter) {
   boutonAcheter.addEventListener("click", function() {
-    panier.innerHTML = "";
-    total = 0;
-    nombreArticles = 0;
-    prixAjoutes = [];
-    afficherPanier();
+    if (produitsPanier.length === 0) {
+      alert("Votre panier est vide.");
+    } else {
+      alert("Commande confirmée !");
+      produitsPanier = [];
+      afficherPanier();
+    }
   });
 }

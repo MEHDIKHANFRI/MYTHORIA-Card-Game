@@ -43,7 +43,7 @@
                         <li class="booster-card min-w-[180px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 ">
                             <span>dES OMBRES</span><br>
                             <span class="prix">60DH</span><br>
-                            <label>Quantité <br><input type="number"  aria-label="Quantité Booster des Ombres"></label><br>
+                            <label>Quantité <br><input type="number" aria-label="Quantité du booster"></label><br>
                             <button class="ajouter mt-5 rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Ajouter</button>
                          
                         </li>
@@ -55,7 +55,7 @@
                         <li class="booster-card min-w-[180px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 ">
                             <span>DES GARDIENS</span><br>
                             <span class="prix">40DH</span><br>
-                           <label>Quantité <br><input type="number"  aria-label="Quantité Booster des Ombres"></label><br>
+                           <label>Quantité <br><input type="number" aria-label="Quantité du booster"></label><br>
                             <button class="ajouter mt-5 rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Ajouter</button>
                         </li>
                     </div>
@@ -63,14 +63,19 @@
                 </div>
             </div>
             <div class="flex flex-col justify-center px-[20px] gap-6 ">
-            <div class=" h-[100px] px-10 py-5 border border-[#76552d] rounded-[15px] bg-[#171119] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_2px_12px_#000,0_0_20px_#e58a16] hover:scale-110 inline-block m-0 gap-5">
-                Panier =
-                <span id="cart"> 0</span>
-                <br><span id="cartTotal">0,00DH</span>
+            <div class="w-[320px] max-w-full rounded-[15px] border border-[#76552d] bg-[#171119] p-5 text-[#ffd477] shadow-[0_2px_12px_#000,0_0_20px_#e58a16]">
+                <div class="flex items-center justify-between border-b border-[#76552d] pb-3 font-[Georgia,serif]">
+                    <h3 class="m-0 text-2xl font-bold text-[#f6a928]">Mon panier</h3>
+                    <span><span id="cart">0
+                </div>
+                <ul id="cartItems" class="m-0 max-h-[320px] list-none space-y-3 overflow-y-auto p-0 py-4" aria-live="polite"></ul>
+                <div class="flex justify-between border-t border-[#76552d] pt-3 font-[Georgia,serif]">
+                    <span>Total :</span><strong id="cartTotal" class="text-[#f6a928]">0 DH</strong>
+                </div>
             </div>
-            <button class="rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Acheter</button>
-             <button class=" rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Supprimer</button>
-            </div>
+            <button class="rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-bold text-[#ffd477]">Acheter</button>
+             <button class="rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-bold text-[#ffd477]">Vider le panier</button>
+        </div>
 
             <div class="flex flex-col justify-center px-[20px] gap-10 ">
                 <div>
@@ -79,7 +84,7 @@
                         <li class="booster-card min-w-[180px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 ">
                             <span>DES ROYAUMES</span><br>
                             <span class="prix">50DH</span><br>
-                            <label>Quantité <br><input type="number"  aria-label="Quantité Booster des Ombres"></label><br>
+                            <label>Quantité <br><input type="number" aria-label="Quantité du booster"></label><br>
                             <button class="ajouter mt-5 rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Ajouter</button>
  
                         </li>
@@ -92,7 +97,7 @@
                         <li class="booster-card min-w-[180px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 ">
                             <span>DU VOILE</span><br>
                             <span class="prix">30DH</span><br>
-                           <label>Quantité <br><input type="number"  aria-label="Quantité Booster des Ombres"></label><br>
+                           <label>Quantité <br><input type="number" aria-label="Quantité du booster"></label><br>
                             <button class="ajouter mt-5 rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Ajouter</button>
                            
                         </li>
@@ -106,4 +111,7 @@
     <script src="javascript.js"></script>
 </body>
 </html>
+
+
+
 
