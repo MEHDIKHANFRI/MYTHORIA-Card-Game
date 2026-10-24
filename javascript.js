@@ -257,6 +257,15 @@ if (boutonOuvrir) {
       const carte = cartes[numero];
       cartesDisponible.innerHTML = '<div class=" rounded-xl border border-[#f6a928] bg-[#171119] p-3 text-center text-[#ffd477]"><img src="' + carte.img + '" alt="' + carte.nom + '" class="h-64 w-44 rounded object-cover"><p>' + carte.nom + '</p></div>';
 
+      let cartesCollection = localStorage.getItem("cartesCollection");
+      if (cartesCollection === null) {
+        cartesCollection = [];
+      } else {
+        cartesCollection = JSON.parse(cartesCollection);
+      }
+      cartesCollection.push(carte);
+      localStorage.setItem("cartesCollection", JSON.stringify(cartesCollection));
+
       afficherBoostersDisponibles();
     }
   });
