@@ -154,7 +154,25 @@ if (boutonAcheter) {
   boutonAcheter.addEventListener("click", e => {
     if (produitsPanier.length === 0) {
       alert("Votre panier est vide.");
-    } 
+    } else {
+      let boostersAchetes = localStorage.getItem("boostersAchetes");
+
+      if (boostersAchetes === null) {
+        boostersAchetes = [];
+      } else {
+        boostersAchetes = JSON.parse(boostersAchetes);
+      }
+
+      for (let i = 0; i < produitsPanier.length; i++) {
+        boostersAchetes.push(produitsPanier[i].titre);
+      }
+
+      const texteBoosters = JSON.stringify(boostersAchetes);
+      localStorage.setItem("boostersAchetes", texteBoosters);
+      alert("Commande confirmée !");
+      produitsPanier = [];
+      afficherPanier();
+    }
   });
 }
 function afficherPanier() {
@@ -204,7 +222,7 @@ const boutonOuvrir = document.querySelector("#ouvrirBooster");
 
 if (boutonOuvrir) {
   const nombreBoostersOuverture = document.querySelector("#nombreBoosters");
-  const zoneCartes = document.querySelector("#cartesOuvertes");
+  const cartesDisponible = document.querySelector("#cartesOuvertes");
 
   function afficherBoostersDisponibles() {
     let boosters = localStorage.getItem("boostersAchetes");
@@ -237,8 +255,7 @@ if (boutonOuvrir) {
 
       const numero = Math.floor(Math.random() * cartes.length);
       const carte = cartes[numero];
-      zoneCartes.innerHTML = '<div class="rounded-xl border border-[#f6a928] bg-[#171119] p-3 text-center text-[#ffd477]"><img src="' + carte.img + '" alt="' + carte.nom + '" class="h-64 w-44 rounded object-cover"><p>' + carte.nom + '</p></div>';
-
+      cartesDisponible.innerHTML = '<div class="rounded-xl border border-[#f6a928] bg-[#171119] p-3 text-center text-[#ffd477]"><img src="' + carte.img + '" alt="' + carte.nom + '" class="h-64 w-44 rounded object-cover"><p>' + carte.nom + '</p></div>';
       afficherBoostersDisponibles();
     }
   });
