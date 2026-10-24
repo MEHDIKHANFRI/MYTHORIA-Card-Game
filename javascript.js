@@ -6,7 +6,6 @@ const cartes = [
     img: "img/CARTE1 (2).png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 60,
     element: "water",
   },
@@ -17,7 +16,6 @@ const cartes = [
     img: "img/CARTE22.png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 60,
     element: "electric",
   },
@@ -28,7 +26,6 @@ const cartes = [
     img: "img/CARTE3.png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 90,
     element: "fire",
   },
@@ -39,7 +36,6 @@ const cartes = [
     img: "img/CARTE44.png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 60,
     element: "water",
   },
@@ -50,7 +46,6 @@ const cartes = [
     img: "img/CARTE1 (2).png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 60,
     element: "fairy",
   },
@@ -61,7 +56,6 @@ const cartes = [
     img: "img/CARTE22.png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 90,
     element: "psychic",
   },
@@ -72,7 +66,6 @@ const cartes = [
     img: "img/CARTE3.png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 90,
     element: "psychic",
   },
@@ -83,7 +76,6 @@ const cartes = [
     img: "img/CARTE44.png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 70,
     element: "fire",
   },
@@ -94,7 +86,6 @@ const cartes = [
     img: "img/CARTE1 (2).png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 60,
     element: "fighting",
   },
@@ -105,7 +96,6 @@ const cartes = [
     img: "img/CARTE22.png",
     categorie: "common",
     type: "creatures",
-    favourite: false,
     pv: 70,
     element: "colorless",
   }
@@ -129,18 +119,18 @@ for (let i = 0; i < boutons.length; i++) {
 }
 
 
-catalogue.addEventListener("click", function(e) {
+catalogue.addEventListener("click",e => {
   if (e.target.classList.contains("ajouter")) {
     const booster = e.target.closest(".booster-card");
     const titre = booster.querySelector("span").textContent.trim();
     const prixTexte = booster.querySelector(".prix").textContent;
     const prix = parseInt(prixTexte.replace("DH", ""));
-    const champQuantite = booster.querySelector("input");
-    let quantite = parseInt(champQuantite.value);
+    const Quantite = booster.querySelector("input");
+    let quantite = parseInt(Quantite.value);
 
-    if (champQuantite.value === "" || quantite < 1) {
+    if (Quantite.value === "" || quantite < 1) {
   quantite = 1;
-  champQuantite.value = 1;
+  Quantite.value = 1;
   }
 
     const image = booster.parentElement.parentElement.querySelector("img").getAttribute("src");
@@ -154,21 +144,17 @@ catalogue.addEventListener("click", function(e) {
 });
 
 if (boutonSupprimer) {
-  boutonSupprimer.addEventListener("click", function() {
+  boutonSupprimer.addEventListener("click", e => {
     produitsPanier = [];
     afficherPanier();
   });
 }
 
 if (boutonAcheter) {
-  boutonAcheter.addEventListener("click", function() {
+  boutonAcheter.addEventListener("click", e => {
     if (produitsPanier.length === 0) {
       alert("Votre panier est vide.");
-    } else {
-      alert("Commande confirmée !");
-      produitsPanier = [];
-      afficherPanier();
-    }
+    } 
   });
 }
 function afficherPanier() {
@@ -180,16 +166,16 @@ function afficherPanier() {
     total = total + produit.prix;
 
     const ligne = document.createElement("li");
-    ligne.className = "flex items-center gap-4 text-sm";
+    ligne.class = "flex items-center gap-4 text-sm";
 
     const image = document.createElement("img");
     image.src = produit.image;
     image.alt = "";
-    image.className = "h-14 w-10 rounded object-cover";
+    image.class = "h-14 w-10 rounded object-cover";
 
     const nom = document.createElement("span");
     nom.textContent = produit.titre;
-    nom.className = "w-30";
+    nom.class = "w-30";
 
     const prix = document.createElement("strong");
     prix.textContent = produit.prix + " DH";
@@ -197,8 +183,8 @@ function afficherPanier() {
     const retirer = document.createElement("button");
     retirer.textContent = "×";
     retirer.type = "button";
-    retirer.className = "rounded bg-[#f6a928] px-2 font-bold text-black";
-    retirer.addEventListener("click", function() {
+    retirer.class = "rounded bg-[#f6a928] px-2 font-bold text-black";
+    retirer.addEventListener("click", e => {
       produitsPanier.splice(i, 1);
       afficherPanier();
     });
@@ -212,4 +198,48 @@ function afficherPanier() {
 
   compteur.textContent = produitsPanier.length;
   totalSpan.textContent = total + " DH";
+}
+
+const boutonOuvrir = document.querySelector("#ouvrirBooster");
+
+if (boutonOuvrir) {
+  const nombreBoostersOuverture = document.querySelector("#nombreBoosters");
+  const zoneCartes = document.querySelector("#cartesOuvertes");
+
+  function afficherBoostersDisponibles() {
+    let boosters = localStorage.getItem("boostersAchetes");
+
+    if (boosters === null) {
+      boosters = [];
+    } else {
+      boosters = JSON.parse(boosters);
+    }
+
+    nombreBoostersOuverture.textContent = boosters.length;
+  }
+
+  afficherBoostersDisponibles();
+
+  boutonOuvrir.addEventListener("click", e => {
+    let boosters = localStorage.getItem("boostersAchetes");
+
+    if (!boosters) {
+      boosters = [];
+    } else {
+      boosters = JSON.parse(boosters);
+    }
+
+    if (boosters.length === 0) {
+      alert("Achetez un booster dans la Boutique avant de l'ouvrir.");
+    } else {
+      boosters.pop();
+      localStorage.setItem("boostersAchetes", JSON.stringify(boosters));
+
+      const numero = Math.floor(Math.random() * cartes.length);
+      const carte = cartes[numero];
+      zoneCartes.innerHTML = '<div class="rounded-xl border border-[#f6a928] bg-[#171119] p-3 text-center text-[#ffd477]"><img src="' + carte.img + '" alt="' + carte.nom + '" class="h-64 w-44 rounded object-cover"><p>' + carte.nom + '</p></div>';
+
+      afficherBoostersDisponibles();
+    }
+  });
 }
