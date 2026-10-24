@@ -138,10 +138,10 @@ catalogue.addEventListener("click", function(e) {
     const champQuantite = booster.querySelector("input");
     let quantite = parseInt(champQuantite.value);
 
-    if (isNaN(quantite) || quantite < 1) {
-      quantite = 1;
-      champQuantite.value = 1;
-    }
+    if (champQuantite.value === "" || quantite < 1) {
+  quantite = 1;
+  champQuantite.value = 1;
+  }
 
     const image = booster.parentElement.parentElement.querySelector("img").getAttribute("src");
 
@@ -170,4 +170,46 @@ if (boutonAcheter) {
       afficherPanier();
     }
   });
+}
+function afficherPanier() {
+  listePanier.innerHTML = "";
+  let total = 0;
+
+  for (let i = 0; i < produitsPanier.length; i++) {
+    const produit = produitsPanier[i];
+    total = total + produit.prix;
+
+    const ligne = document.createElement("li");
+    ligne.className = "flex items-center gap-4 text-sm";
+
+    const image = document.createElement("img");
+    image.src = produit.image;
+    image.alt = "";
+    image.className = "h-14 w-10 rounded object-cover";
+
+    const nom = document.createElement("span");
+    nom.textContent = produit.titre;
+    nom.className = "w-30";
+
+    const prix = document.createElement("strong");
+    prix.textContent = produit.prix + " DH";
+
+    const retirer = document.createElement("button");
+    retirer.textContent = "×";
+    retirer.type = "button";
+    retirer.className = "rounded bg-[#f6a928] px-2 font-bold text-black";
+    retirer.addEventListener("click", function() {
+      produitsPanier.splice(i, 1);
+      afficherPanier();
+    });
+
+    ligne.appendChild(image);
+    ligne.appendChild(nom);
+    ligne.appendChild(prix);
+    ligne.appendChild(retirer);
+    listePanier.appendChild(ligne);
+  }
+
+  compteur.textContent = produitsPanier.length;
+  totalSpan.textContent = total + " DH";
 }
