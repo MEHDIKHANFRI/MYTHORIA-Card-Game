@@ -270,3 +270,28 @@ if (boutonOuvrir) {
     }
   });
 }
+const zoneCollection = document.querySelector("#collection");
+
+if (zoneCollection) {
+  let cartesCollection = localStorage.getItem("cartesCollection");
+
+  if (cartesCollection === null) {
+    cartesCollection = [];
+  } else {
+    cartesCollection = JSON.parse(cartesCollection);
+  }
+
+  for (let i = 0; i < 15; i++) {
+    const carte = cartesCollection[i];
+    const diiv = document.createElement("div");
+    diiv.className = "text-center text-[#ffd477]";
+
+    const image = document.createElement("img");
+    image.src = carte.img;
+    image.alt = carte.nom;
+    image.className = "h-20 w-20 rounded object-cover";
+
+    diiv.appendChild(image);
+    zoneCollection.appendChild(diiv);
+  }
+}
