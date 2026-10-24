@@ -17,16 +17,15 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body class="background-4">
-    <header class="min-h-[76px] px-[30px] flex items-center justify-between gap-6 bg-[#030303] font-[Arial,sans-serif]">
-        <a class="text-white text-[26px] font-bold no-underline" href="index.html">MYTHORIA</a>
-
-        <nav aria-label="Navigation principale">
-            <ul class="flex items-center gap-7 m-0 p-0 list-none">
-                <li><a class="text-white no-underline hover:text-[#ffd477]" href="accueil.html">Accueil</a></li>
-                <li><a class="text-white no-underline hover:text-[#ffd477]" href="shop.html">Boutique</a></li>
-                <li><a class="text-[#f6a928] font-bold border-b border-b-[#f6a928]" href="opening.html">Ouverture</a></li>
-                <li><a class="text-white no-underline hover:text-[#ffd477]" href="collection.html">Grimoire</a></li>
-                <li><a class="text-white no-underline hover:text-[#ffd477]" href="myDeck.html">Mon deck</a></li>
+    <header class="min-h-[80px] px-[30px] flex items-center justify-between gap-6  font-[Arial,sans-serif]">
+        <a class="mt-2 h-[80px] w-[150px] object-cover border-2 rounded-[14px] border-[#f6a928] shadow-[0_0_12px_#e58a16]" href="index.html"><img src="img/LOGO.png" alt=""></a>
+        <nav>
+            <ul class="flex items-center gap-7 m-0 p-0">
+                <li><a class="min-w-[170px] px-6 py-4 border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center border-[#f6a928] shadow-[0_0_12px_#e58a16] " href="accueil.html">Accueil</a></li>
+                <li><a class="min-w-[170px] px-6 py-4 border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center border-[#f6a928] shadow-[0_0_12px_#e58a16]" href="shop.html">Boutique</a></li>
+                <li><a class="min-w-[170px] px-6 py-4 border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center border-[#f6a928] shadow-[0_0_12px_#e58a16]" href="opening.html">Ouverture</a></li>
+                <li><a class="min-w-[170px] px-6 py-4 border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center border-[#f6a928] shadow-[0_0_12px_#e58a16]" href="collection.html">Grimoire</a></li>
+                <li><a class="min-w-[170px] px-6 py-4 border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center border-[#f6a928] shadow-[0_0_12px_#e58a16]" href="myDeck.html">Mon deck</a></li>
             </ul>
         </nav>
     </header>
@@ -37,9 +36,13 @@
                 <p class="text-[20px] text-center text-[aliceblue] [text-shadow:0_2px_12px_#000,0_0_24px_#000] mb-5 mt-5 mr-20 ml-20 bg-[#171119] border-2 rounded-[15px] px-5 py-5 border-[#f6a928]">
                  Ouvre un booster pour découvrir les cartes qu'il renferme. Chaque ouverture réserve une surprise !   </p>
             </div>
-            <button id="ouvrirBooster" class="min-w-[350px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block ml-[450px]">Ouvrir un booster</button>
-            <p class="mt-5 text-center text-[#ffd477]">Boosters disponibles : <span id="nombreBoosters">0</span></p>
-            <div id="cartesOuvertes" class="flex flex-wrap justify-center gap-5 px-5 py-8"></div>
+            <div class="flex justify-center gap-5">
+            <div class="mt-20">
+            <button id="ouvrirBooster" class="min-w-[350px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 ">Ouvrir un booster</button>
+            <p class="mt-5 mb-5 text-center text-[#ffd477]  px-5 py-5 border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Boosters disponibles : <span id="nombreBoosters">0</span></p>
+            </div>
+            <div id="cartesOuvertes" class="flex flex-wrap justify-center gap-5 px-5 py-8 "></div>
+            </div>
         </section>
     </main>
     
