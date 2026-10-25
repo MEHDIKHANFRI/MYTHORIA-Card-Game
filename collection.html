@@ -16,8 +16,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body class="background-3">
-    <header class="min-h-[76px] px-[30px] flex items-center justify-between gap-6  font-[Arial,sans-serif]">
+<body>
+    <header class="bg-black min-h-[76px] px-[30px] flex items-center justify-between gap-6  font-[Arial,sans-serif]">
         <a class="mt-2 h-[80px] w-[150px] object-cover border-2 rounded-[14px] border-[#f6a928] shadow-[0_0_12px_#e58a16] bg-[rgba(18,8,24,0.9)]" href="index.html" href="index.html"><img src="img/LOGO.png" alt=""></a>
         <nav>
             <ul class="flex items-center gap-7 m-0 p-0">
@@ -29,26 +29,26 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main class="background-3">
     <section>
         <div class="flex">
             <div class="flex m-0 gap-0">
-                <div class="flex flex-col ml-[50px] mt-2 ">
+                <div class="flex flex-col ml-[50px] mt-20 ">
                 <button id="voile"  class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">VOILE</button>
                 <button id="royaumes" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">ROYAUMES</button>
                 <button id="gardiens" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">GARDIENS</button>
                 <button id="ombres" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">OMBRES</button>
-                 <button id="ombres" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">LEGENDARY</button>
-                 <button id="ombres" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">COMMON</button>
-                 <button id="ombres" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">RARE</button>
-                 <button id="ombres" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">EPIC</button>
-                 <button id="ombres" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">SUPPRIMER</button>
+                 <button id="LEGENDARY" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">LEGENDARY</button>
+                 <button id="COMMON" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">COMMON</button>
+                 <button id="RARE" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">RARE</button>
+                 <button id="EPIC" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">EPIC</button>
+                 <button id="SUPPRIMERTOUS" class="min-w-[50px] px-2 py-2 border-2 rounded-[14px] bg-[rgba(18,30,14,0.9)] text-[#c5e89b] font-[Georgia,serif] text-center border-[#6b8e23] shadow-[0_0_12px_#4f772d]">SUPPRIMER</button>
                 
             </div>
-            <div id="collection" class="grid grid-cols-2 gap-1 grid-cols-3 min-w-[300px] ml-[50px] "></div>
+            <div id="collection" class="grid grid-cols-2  grid-cols-3 min-w-[300px] ml-[80px] mt-[60px] "></div>
         </div>
             <div class="ml-[200px] mt-[20px]">
-            <h2 class=" m-0 py-4 text-center font-[Georgia,serif] text-4xl   text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Phytomancien</h2>
+            <h2 class=" mt-10 py-4 text-center font-[Georgia,serif] text-4xl   text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Phytomancien</h2>
             <img class="ml-4 mt-5 w-[200px] h-[200px]" src="img/deck.png" alt="">
         </div>
         </div>
