@@ -69,3 +69,71 @@ function ajouterProduit(titre, prix, image) {
   totalSpan.textContent = total + " DH";
   compteur.textContent = panier.children.length;
 }
+
+if (panier) {
+  catalogue.addEventListener("click", e=> {
+    if (e.target.classList.contains("ajouter")) {
+      const booster = e.target.closest(".booster-card");
+      const titre = booster.querySelector("span").textContent.trim();
+      const textePrix = booster.querySelector(".prix").textContent;
+      const prix = parseInt(textePrix.replace("DH", ""), 10);
+      const champQuantite = booster.querySelector("input");
+      let quantite = parseInt(champQuantite.value, 10);
+
+      if (champQuantite.value === "" || quantite < 1) {
+        quantite = 1;
+      }
+
+      const image = booster.parentElement.parentElement.querySelector("img").src;
+      for (let i = 0; i < quantite; i++) {
+        ajouterProduit(titre, prix, image);
+      }
+    }
+  });
+
+  panier.addEventListener("click", e=> {
+    if (e.target.classList.contains("supprimer")) {
+      const li = e.target.parentNode;
+      total = total - parseInt(li.getAttribute("prix"), 10);
+      li.remove();
+      totalSpan.textContent = total + " DH";
+      compteur.textContent = panier.children.length;
+    }
+  });
+}
+
+if (boutonVider) {
+  boutonVider.addEventListener("click", e=> {
+    panier.innerHTML = "";
+    total = 0;
+    totalSpan.textContent = "0 DH";
+    compteur.textContent = 0;
+  });
+}
+
+if (boutonAcheter) {
+  boutonAcheter.addEventListener("click", e=> {
+    if (panier.children.length === 0) {
+      alert("Votre panier est vide.");
+    } else {
+      let boosters = localStorage.getItem("boostersAchetes");
+      if (boosters === null) {
+        boosters = [];
+      } else {
+        boosters = JSON.parse(boosters);
+      }
+
+      const lignes = panier.querySelectorAll("li");
+      for (let i = 0; i < lignes.length; i++) {
+        boosters.push(lignes[i].getAttribute("titre"));
+      }
+
+      localStorage.setItem("boostersAchetes", JSON.stringify(boosters));
+      alert("Commande confirmée !");
+      panier.innerHTML = "";
+      total = 0;
+      totalSpan.textContent = "0 DH";
+      compteur.textContent = 0;
+    }
+  });
+}
