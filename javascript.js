@@ -41,197 +41,31 @@ const cards = [
   { id: 50, nom: "Névaris, Seigneur du Néant", description: "Un souverain des ténèbres commande aux forces qui sommeillent au-delà du monde.", img: "img/ombres-10.png", categorie: "common", rarity: "legendary", type: "ombres", pv: 120, element: "dark" },
 ];
 const catalogue = document.querySelector("main");
-const compteur = document.querySelector("#cart");
+const panier = document.querySelector("#cartItems");
 const totalSpan = document.querySelector("#cartTotal");
-const listePanier = document.querySelector("#cartItems");
-const boutons = document.querySelectorAll("button");
-let produitsPanier = [];
+const compteur = document.querySelector("#cart");
+let total = 0;
 let boutonAcheter;
-let boutonSupprimer;
+let boutonVider;
 
+const boutons = document.querySelectorAll("button");
 for (let i = 0; i < boutons.length; i++) {
   if (boutons[i].textContent.trim() === "Acheter") {
     boutonAcheter = boutons[i];
   }
   if (boutons[i].textContent.trim() === "Vider le panier") {
-    boutonSupprimer = boutons[i];
+    boutonVider = boutons[i];
   }
 }
 
-
-catalogue.addEventListener("click",e => {
-  if (e.target.classList.contains("ajouter")) {
-    const booster = e.target.closest(".booster-card");
-    const titre = booster.querySelector("span").textContent.trim();
-    const prixTexte = booster.querySelector(".prix").textContent;
-    const prix = parseInt(prixTexte.replace("DH", ""));
-    const Quantite = booster.querySelector("input");
-    let quantite = parseInt(Quantite.value);
-
-    if (Quantite.value === "" || quantite < 1) {
-  quantite = 1;
-  Quantite.value = 1;
-  }
-
-    const image = booster.parentElement.parentElement.querySelector("img").getAttribute("src");
-
-    for (let i = 0; i < quantite; i++) {
-      produitsPanier.push({ titre: titre, prix: prix, image: image });
-    }
-
-    afficherPanier();
-  }
-});
-
-if (boutonSupprimer) {
-  boutonSupprimer.addEventListener("click", e => {
-    produitsPanier = [];
-    afficherPanier();
-  });
-}
-
-if (boutonAcheter) {
-  boutonAcheter.addEventListener("click", e => {
-    if (produitsPanier.length === 0) {
-      alert("Votre panier est vide.");
-    } else {
-      let boostersAchetes = localStorage.getItem("boostersAchetes");
-
-      if (boostersAchetes === null) {
-        boostersAchetes = [];
-      } else {
-        boostersAchetes = JSON.parse(boostersAchetes);
-      }
-
-      for (let i = 0; i < produitsPanier.length; i++) {
-        boostersAchetes.push(produitsPanier[i].titre);
-      }
-
-      const texteBoosters = JSON.stringify(boostersAchetes);
-      localStorage.setItem("boostersAchetes", texteBoosters);
-      alert("Commande confirmée !");
-      produitsPanier = [];
-      afficherPanier();
-    }
-  });
-}
-function afficherPanier() {
-  listePanier.innerHTML = "";
-  let total = 0;
-
-  for (let i = 0; i < produitsPanier.length; i++) {
-    const produit = produitsPanier[i];
-    total = total + produit.prix;
-
-    const ligne = document.createElement("li");
-    ligne.class = "flex items-center gap-4 text-sm";
-
-    const image = document.createElement("img");
-    image.src = produit.image;
-    image.alt = "";
-    image.class = "h-14 w-10 rounded object-cover";
-
-    const nom = document.createElement("span");
-    nom.textContent = produit.titre;
-    nom.class = "w-30";
-
-    const prix = document.createElement("strong");
-    prix.textContent = produit.prix + " DH";
-
-    const retirer = document.createElement("button");
-    retirer.textContent = "×";
-    retirer.type = "button";
-    retirer.class = "rounded bg-[#f6a928] px-2 font-bold text-black";
-    retirer.addEventListener("click", e => {
-      produitsPanier.splice(i, 1);
-      afficherPanier();
-    });
-
-    ligne.appendChild(image);
-    ligne.appendChild(nom);
-    ligne.appendChild(prix);
-    ligne.appendChild(retirer);
-    listePanier.appendChild(ligne);
-  }
-
-  compteur.textContent = produitsPanier.length;
+function ajouterProduit(titre, prix, image) {
+  const li = document.createElement("li");
+  li.className = "flex items-center gap-4 text-sm";
+  li.setAttribute("prix", prix);
+  li.setAttribute("titre", titre);
+  li.innerHTML = '<img src="' + image + '" class="h-14 w-10 rounded object-cover"><span class="flex-1">' + titre + '</span><strong>' + prix + ' DH</strong><button class="supprimer">×</button>';
+  panier.appendChild(li);
+  total = total + prix;
   totalSpan.textContent = total + " DH";
-}
-
-const boutonOuvrir = document.querySelector("#ouvrirBooster");
-
-if (boutonOuvrir) {
-  const nombreBoostersOuverture = document.querySelector("#nombreBoosters");
-  const cartesDisponible = document.querySelector("#cartesOuvertes");
-
-  function afficherBoostersDisponibles() {
-    let boosters = localStorage.getItem("boostersAchetes");
-
-    if (boosters === null) {
-      boosters = [];
-    } else {
-      boosters = JSON.parse(boosters);
-    }
-
-    nombreBoostersOuverture.textContent = boosters.length;
-  }
-
-  afficherBoostersDisponibles();
-
-  boutonOuvrir.addEventListener("click", e => {
-    let boosters = localStorage.getItem("boostersAchetes");
-
-    if (!boosters) {
-      boosters = [];
-    } else {
-      boosters = JSON.parse(boosters);
-    }
-
-    if (boosters.length === 0) {
-      alert("Achetez un booster dans la Boutique avant de l'ouvrir.");
-    } else {
-      boosters.pop();
-      localStorage.setItem("boostersAchetes", JSON.stringify(boosters));
-
-      const numero = Math.floor(Math.random() * cartes.length);
-      const carte = cartes[numero];
-      cartesDisponible.innerHTML = '<div class=" rounded-xl border border-[#f6a928] bg-[#171119] p-3 text-center text-[#ffd477]"><img src="' + carte.img + '" alt="' + carte.nom + '" class="h-64 w-44 rounded object-cover"><p>' + carte.nom + '</p></div>';
-
-      let cartesCollection = localStorage.getItem("cartesCollection");
-      if (cartesCollection === null) {
-        cartesCollection = [];
-      } else {
-        cartesCollection = JSON.parse(cartesCollection);
-      }
-      cartesCollection.push(carte);
-      localStorage.setItem("cartesCollection", JSON.stringify(cartesCollection));
-
-      afficherBoostersDisponibles();
-    }
-  });
-}
-const zoneCollection = document.querySelector("#collection");
-
-if (zoneCollection) {
-  let cartesCollection = localStorage.getItem("cartesCollection");
-
-  if (cartesCollection === null) {
-    cartesCollection = [];
-  } else {
-    cartesCollection = JSON.parse(cartesCollection);
-  }
-
-  for (let i = 0; i < 15; i++) {
-    const carte = cartesCollection[i];
-    const diiv = document.createElement("div");
-    diiv.className = "text-center text-[#ffd477]";
-
-    const image = document.createElement("img");
-    image.src = carte.img;
-    image.alt = carte.nom;
-    image.className = "h-20 w-20 rounded object-cover";
-
-    diiv.appendChild(image);
-    zoneCollection.appendChild(diiv);
-  }
+  compteur.textContent = panier.children.length;
 }
