@@ -137,3 +137,67 @@ if (boutonAcheter) {
     }
   });
 }
+
+const boutonOuvrir = document.querySelector("#ouvrirBooster");
+if (boutonOuvrir) {
+  const nombreBoosters = document.querySelector("#nombreBoosters");
+  const cartesOuvertes = document.querySelector("#cartesOuvertes");
+
+  function afficherNombreBoosters() {
+    let boosters = localStorage.getItem("boostersAchetes");
+    if (boosters === null) {
+      boosters = [];
+    } else {
+      boosters = JSON.parse(boosters);
+    }
+    nombreBoosters.textContent = boosters.length;
+  }
+
+  afficherNombreBoosters();
+
+  boutonOuvrir.addEventListener("click", e=> {
+    let boosters = localStorage.getItem("boostersAchetes");
+    if (boosters === null) {
+      boosters = [];
+    } else {
+      boosters = JSON.parse(boosters);
+    }
+
+    if (boosters.length === 0) {
+      alert("Achetez un booster dans la Boutique avant de l'ouvrir.");
+    } else {
+      let collection = localStorage.getItem("cartesCollection");
+      if (collection === null) {
+        collection = [];
+      } else {
+        collection = JSON.parse(collection);
+      }
+
+      let disponibles = [];
+      for (let i = 0; i < cards.length; i++) {
+        let dejaObtenue = false;
+        for (let j = 0; j < collection.length; j++) {
+          if (cards[i].id === collection[j].id) {
+            dejaObtenue = true;
+          }
+        }
+        if (dejaObtenue === false) {
+          disponibles.push(cards[i]);
+        }
+      }
+
+      if (disponibles.length === 0) {
+        alert("Toutes les cartes sont déjà dans votre collection.");
+      } else {
+        const numero = Math.floor(Math.random() * disponibles.length);
+        const carte = disponibles[numero];
+        boosters.pop();
+        collection.push(carte);
+        localStorage.setItem("boostersAchetes", JSON.stringify(boosters));
+        localStorage.setItem("cartesCollection", JSON.stringify(collection));
+        cartesOuvertes.innerHTML = '<img src="' + carte.img + '" alt="' + carte.nom + '" class="h-64 w-44 rounded object-cover"><p>' + carte.nom + '</p>';
+        afficherNombreBoosters();
+      }
+    }
+  });
+}
