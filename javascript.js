@@ -248,7 +248,7 @@ if (zoneCollection) {
 
       for (let i = 0; i < collection.length; i++) {
         if (collection[i].id == idCarte) {
-          carteSelectionnee.innerHTML = '<img src="' + collection[i].img + '" alt="' + collection[i].nom + '" class="h-80 w-56 rounded-xl object-cover"><p class="mt-3 text-center text-[#ffd477]">' + collection[i].nom + '</p>';
+          carteSelectionnee.innerHTML = '<img src="' + collection[i].img + '" alt="' + collection[i].nom + '" class="h-100 w-60 rounded-xl object-cover"><p class="mt-3 text-center text-[#ffd477]">' + '</p>';
         }
       }
     }
@@ -287,8 +287,6 @@ if (zoneCollection) {
       collection = [];
       localStorage.setItem("cartesCollection", JSON.stringify(collection));
       afficherCartes("toutes", "toutes");
-
-
     }
   });
 }
