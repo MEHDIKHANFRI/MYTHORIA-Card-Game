@@ -235,9 +235,60 @@ if (zoneCollection) {
       }
 
       if (dejaAffichee === false && bonType === true && bonneRarete === true) {
-        zoneCollection.innerHTML += '<img src="' + carte.img + '" alt="' + carte.nom + '" data-id="' + carte.id + '" class="h-30 w-20 rounded object-cover cursor-pointer">';
+        zoneCollection.innerHTML += '<img src="' + carte.img + '" alt="' + carte.nom + '" id="' + carte.id + '" class="h-30 w-20 rounded object-cover cursor-pointer">';
       }
     }
   }
 
-  
+  afficherCartes("toutes", "toutes");
+
+  zoneCollection.addEventListener("click", e=> {
+    if (e.target.tagName === "IMG") {
+      const idCarte = e.target.getAttribute("id");
+
+      for (let i = 0; i < collection.length; i++) {
+        if (collection[i].id == idCarte) {
+          carteSelectionnee.innerHTML = '<img src="' + collection[i].img + '" alt="' + collection[i].nom + '" class="h-80 w-56 rounded-xl object-cover"><p class="mt-3 text-center text-[#ffd477]">' + collection[i].nom + '</p>';
+        }
+      }
+    }
+  });
+
+
+
+  document.querySelector("#voile").addEventListener("click", e=> {
+    afficherCartes("voile", "toutes");
+  });
+  document.querySelector("#royaumes").addEventListener("click", e=> {
+    afficherCartes("royaumes", "toutes");
+  });
+  document.querySelector("#gardiens").addEventListener("click", e=> {
+    afficherCartes("gardiens", "toutes");
+  });
+  document.querySelector("#ombres").addEventListener("click", e=> {
+    afficherCartes("ombres", "toutes");
+  });
+
+  document.querySelector("#COMMON").addEventListener("click", e=> {
+    afficherCartes("toutes", "common");
+  });
+  document.querySelector("#RARE").addEventListener("click", e=> {
+    afficherCartes("toutes", "rare");
+  });
+  document.querySelector("#EPIC").addEventListener("click", e=> {
+    afficherCartes("toutes", "epic");
+  });
+  document.querySelector("#LEGENDARY").addEventListener("click", e=> {
+    afficherCartes("toutes", "legendary");
+  });
+
+  document.querySelector("#SUPPRIMERTOUS").addEventListener("click", e=> {
+    if (confirm("Supprimer toutes les cartes de la collection ?")) {
+      collection = [];
+      localStorage.setItem("cartesCollection", JSON.stringify(collection));
+      afficherCartes("toutes", "toutes");
+
+
+    }
+  });
+}
