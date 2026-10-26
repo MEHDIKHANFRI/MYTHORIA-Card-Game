@@ -201,9 +201,9 @@ if (boutonOuvrir) {
     }
   });
 }
-
 const zoneCollection = document.querySelector("#collection");
 if (zoneCollection) {
+  const carteSelectionnee = document.querySelector("#carteSelectionnee");
   let collection = localStorage.getItem("cartesCollection");
   if (collection === null) {
     collection = [];
@@ -211,25 +211,33 @@ if (zoneCollection) {
     collection = JSON.parse(collection);
   }
 
-  function afficherCartes(type) {
+  function afficherCartes(type, rarete) {
     zoneCollection.innerHTML = "";
+
     for (let i = 0; i < collection.length; i++) {
       const carte = collection[i];
       let dejaAffichee = false;
+
       for (let j = 0; j < i; j++) {
         if (collection[j].id === carte.id) {
           dejaAffichee = true;
         }
       }
-      if (dejaAffichee === false && (type === "toutes" || carte.type === type)) {
-        zoneCollection.innerHTML += '<img src="' + carte.img + '" alt="' +  '" class="h-20 w-20 rounded object-cover">';
+
+      let bonType = false;
+      if (type === "toutes" || carte.type === type) {
+        bonType = true;
+      }
+
+      let bonneRarete = false;
+      if (rarete === "toutes" || carte.rarity === rarete) {
+        bonneRarete = true;
+      }
+
+      if (dejaAffichee === false && bonType === true && bonneRarete === true) {
+        zoneCollection.innerHTML += '<img src="' + carte.img + '" alt="' + carte.nom + '" data-id="' + carte.id + '" class="h-30 w-20 rounded object-cover cursor-pointer">';
       }
     }
   }
 
-  afficherCartes("toutes");
-  document.querySelector("#voile").addEventListener("click", e=> { afficherCartes("voile"); });
-  document.querySelector("#royaumes").addEventListener("click", e=> { afficherCartes("royaumes"); });
-  document.querySelector("#gardiens").addEventListener("click", e=> { afficherCartes("gardiens"); });
-  document.querySelector("#ombres").addEventListener("click", e=> { afficherCartes("ombres"); });
-}
+  
