@@ -175,34 +175,31 @@ if (boutonOuvrir) {
 
       let disponibles = [];
       for (let i = 0; i < cards.length; i++) {
-        let dejaObtenue = false;
-        for (let j = 0; j < collection.length; j++) {
-          if (cards[i].id === collection[j].id) {
-            dejaObtenue = true;
-          }
-        }
-        if (dejaObtenue === false) {
           disponibles.push(cards[i]);
-        }
       }
 
       if (disponibles.length === 0) {
         alert("Toutes les cartes sont déjà dans votre collection.");
       } else {
+        boosters.pop();
+        cartesOuvertes.innerHTML = "";
+        for (let i = 0; i < 4; i++) {
         const numero = Math.floor(Math.random() * disponibles.length);
         const carte = disponibles[numero];
-        boosters.pop();
+       
         collection.push(carte);
+        cartesOuvertes.innerHTML += '<img src="' + carte.img + '" alt="' + carte.nom + '" class="h-70 w-40 rounded object-cover">';
+        }
         localStorage.setItem("boostersAchetes", JSON.stringify(boosters));
         localStorage.setItem("cartesCollection", JSON.stringify(collection));
-        cartesOuvertes.innerHTML = '<img src="' + carte.img + '" alt="' + carte.nom + '" class="h-64 w-44 rounded object-cover"><p>' + carte.nom + '</p>';
+      
         afficherNombreBoosters();
       }
     }
   });
 }
 const zoneCollection = document.querySelector("#collection");
-if (zoneCollection) {
+if (zoneCollection && document.querySelector("#cartejouer") === null) {
   const carteSelectionnee = document.querySelector("#carteSelectionnee");
   let collection = localStorage.getItem("cartesCollection");
   if (collection === null) {
@@ -289,4 +286,22 @@ if (zoneCollection) {
       afficherCartes("toutes", "toutes");
     }
   });
+}
+
+const pageDeck = document.querySelector("#cartejouer");
+if(pageDeck){
+  const zoneCarte = document.querySelector("collection");
+  pageDeck.classList.add("grid","grid-col-3", "gap-10", "content-star");
+  let collectionDeck = localStorage.getItem("cartesCollection");
+  let deck = localStorage.getItem("cartesDeck");
+  if(collectionDeck == null){
+    collectionDeck = [];
+  }else{
+    collectionDeck = JSON.parse(collectionDeck);
+  }
+  if(deck == null){
+    deck =[];
+  }else {
+    deck = JSON.parse(deck);
+  }
 }
