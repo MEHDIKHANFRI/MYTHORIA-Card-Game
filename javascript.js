@@ -339,7 +339,7 @@ if (zoneDeck) {
     zoneDeck.innerHTML = "";
 
     const nombre = document.createElement("p");
-    nombre.textContent = "Cartes dans le deck : " + deck.length + " / 20";
+    nombre.textContent = "Selection des 20 cartes : " + deck.length + " / 20";
     nombre.className = "col-span-3 text-center ";
     zoneDeck.appendChild(nombre);
 
@@ -370,7 +370,36 @@ if (zoneDeck) {
     }
   }
 
- 
+  zoneCartes.addEventListener("click", e=> {
+    if (e.target.tagName === "IMG") {
+      const idCarte = e.target.getAttribute("id2");
+      let carteChoisie = null;
+
+      for (let i = 0; i < collectionDeck.length; i++) {
+        if (collectionDeck[i].id == idCarte) {
+          carteChoisie = collectionDeck[i];
+        }
+      }
+
+      if (deck.length >= 20) {
+        alert("Le deck contient déjà 20 cartes.");
+      } else {
+        let dejaDansDeck = false;
+
+        for (let i = 0; i < deck.length; i++) {
+          if (deck[i].id == idCarte) {
+            dejaDansDeck = true;
+          }
+        }
+
+        if (dejaDansDeck === false && carteChoisie !== null) {
+          deck.push(carteChoisie);
+          localStorage.setItem("cartesDeck", JSON.stringify(deck));
+          afficherDeck();
+        }
+      }
+    }
+  });
 
   afficherCollection();
   afficherDeck();
