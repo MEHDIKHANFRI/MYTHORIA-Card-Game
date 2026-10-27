@@ -288,59 +288,69 @@ if (zoneCollection && document.querySelector("#cartejouer") === null) {
   });
 }
 
-const pageDeck = document.querySelector("#cartejouer");
-if(pageDeck){
-  const zoneCarte = document.querySelector("collection");
-  pageDeck.classList.add("grid","grid-col-3", "gap-10", "content-star");
+const zoneDeck = document.querySelector("#cartejouer");
+
+if (zoneDeck) {
+  const zoneCartes = document.querySelector("#collection");
+  zoneDeck.classList.add("grid", "grid-cols-3", "gap-10","content-start");
   let collectionDeck = localStorage.getItem("cartesCollection");
   let deck = localStorage.getItem("cartesDeck");
-  if(collectionDeck == null){
+
+  if (collectionDeck === null) {
     collectionDeck = [];
-  }else{
+  } else {
     collectionDeck = JSON.parse(collectionDeck);
   }
-  if(deck == null){
-    deck =[];
-  }else {
+
+  if (deck === null) {
+    deck = [];
+  } else {
     deck = JSON.parse(deck);
   }
-  function afficherCollection(){
-    zoneCarte.innerHTML="";
-    for(let i =0 ; i < collectionDeck.length ; i++){
-      let affiche = 0 ;
-      for(let j = 0 ; j < i ; j++){
-        if(collectionDeck[i].id == collectionDeck[j].id){
-          affiche = 1 ;
+
+  function afficherCollection() {
+    zoneCartes.innerHTML = "";
+
+    for (let i = 0; i < collectionDeck.length; i++) {
+      let dejaAffichee = 0;
+
+      for (let j = 0; j < i; j++) {
+        if (collectionDeck[i].id === collectionDeck[j].id) {
+          dejaAffichee = 1;
         }
       }
-      if(affiche == 0 ){
+
+      if (dejaAffichee === 0) {
         const image = document.createElement("img");
-        image.src=collectionDeck[i].img;
-        image.src=collectionDeck[i].nom;
+        image.src = collectionDeck[i].img;
+        image.alt = collectionDeck[i].nom;
         image.setAttribute("id2", collectionDeck[i].id);
-        image.className = "h-30 w-20 object-cover";
-        zoneCarte.appendChild(image);
+        image.className = "h-30 w-20 rounded object-cover ";
+        zoneCartes.appendChild(image);
       }
     }
-    if(collectionDeck.length ==0){
-      zoneCarte.textContent = "Aucune carte dans votre collection.";
+
+    if (collectionDeck.length === 0) {
+      zoneCartes.textContent = "Aucune carte dans votre collection.";
     }
   }
-  function afficherDeeck(){
-    pageDeck.innerHTML = "";
-    const nombre = document.createElement("p");
-    nombre.textContent = "Selection des 20 cartes pour composer le deck et jouer. (" + deck.length + " /20)";
-    nombre.className = "col-span-3 texte-center";
-    pageDeck.appendChild(nombre);
 
-    for(let i = 0 ; i < deck.length ; i++){
+  function afficherDeck() {
+    zoneDeck.innerHTML = "";
+
+    const nombre = document.createElement("p");
+    nombre.textContent = "Cartes dans le deck : " + deck.length + " / 20";
+    nombre.className = "col-span-3 text-center ";
+    zoneDeck.appendChild(nombre);
+
+    for (let i = 0; i < deck.length; i++) {
       const ligne = document.createElement("div");
       ligne.className = "flex flex-col items-center";
 
       const image = document.createElement("img");
       image.src = deck[i].img;
-      image.src = deck[i].nom;
-      image.classeName = "h-30 w-20 object-cover";
+      image.alt = deck[i].nom;
+      image.className = "h-30 w-20 rounded object-cover";
 
       const nom = document.createElement("span");
       nom.textContent = deck[i].nom;
@@ -348,15 +358,20 @@ if(pageDeck){
       const boutonRetirer = document.createElement("button");
       boutonRetirer.textContent = "Retirer";
       boutonRetirer.type = "button";
-      boutonRetirer.addEventListener("click", e=>{
-        deck.splice(i,1);
-        localStorage.setItem("carteDeck" , JSON.stringify(deck));
-        afficherDeeck();
+      boutonRetirer.addEventListener("click", e=> {
+        deck.splice(i, 1);
+        localStorage.setItem("cartesDeck", JSON.stringify(deck));
+        afficherDeck();
       });
+
       ligne.appendChild(image);
       ligne.appendChild(boutonRetirer);
       zoneDeck.appendChild(ligne);
     }
   }
-  
+
+ 
+
+  afficherCollection();
+  afficherDeck();
 }
