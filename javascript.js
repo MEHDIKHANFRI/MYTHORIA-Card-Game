@@ -326,8 +326,37 @@ if(pageDeck){
       zoneCarte.textContent = "Aucune carte dans votre collection.";
     }
   }
+  function afficherDeeck(){
+    pageDeck.innerHTML = "";
+    const nombre = document.createElement("p");
+    nombre.textContent = "Selection des 20 cartes pour composer le deck et jouer. (" + deck.length + " /20)";
+    nombre.className = "col-span-3 texte-center";
+    pageDeck.appendChild(nombre);
+
+    for(let i = 0 ; i < deck.length ; i++){
+      const ligne = document.createElement("div");
+      ligne.className = "flex flex-col items-center";
+
+      const image = document.createElement("img");
+      image.src = deck[i].img;
+      image.src = deck[i].nom;
+      image.classeName = "h-30 w-20 object-cover";
+
+      const nom = document.createElement("span");
+      nom.textContent = deck[i].nom;
+
+      const boutonRetirer = document.createElement("button");
+      boutonRetirer.textContent = "Retirer";
+      boutonRetirer.type = "button";
+      boutonRetirer.addEventListener("click", e=>{
+        deck.splice(i,1);
+        localStorage.setItem("carteDeck" , JSON.stringify(deck));
+        afficherDeeck();
+      });
+      ligne.appendChild(image);
+      ligne.appendChild(boutonRetirer);
+      zoneDeck.appendChild(ligne);
+    }
+  }
   
-  zoneCarte.addEventListener("click" , e=>{
-    if
-  })
 }
