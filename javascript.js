@@ -304,4 +304,30 @@ if(pageDeck){
   }else {
     deck = JSON.parse(deck);
   }
+  function afficherCollection(){
+    zoneCarte.innerHTML="";
+    for(let i =0 ; i < collectionDeck.length ; i++){
+      let affiche = 0 ;
+      for(let j = 0 ; j < i ; j++){
+        if(collectionDeck[i].id == collectionDeck[j].id){
+          affiche = 1 ;
+        }
+      }
+      if(affiche == 0 ){
+        const image = document.createElement("img");
+        image.src=collectionDeck[i].img;
+        image.src=collectionDeck[i].nom;
+        image.setAttribute("id2", collectionDeck[i].id);
+        image.className = "h-30 w-20 object-cover";
+        zoneCarte.appendChild(image);
+      }
+    }
+    if(collectionDeck.length ==0){
+      zoneCarte.textContent = "Aucune carte dans votre collection.";
+    }
+  }
+  
+  zoneCarte.addEventListener("click" , e=>{
+    if
+  })
 }
