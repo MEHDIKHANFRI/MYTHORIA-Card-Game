@@ -10,7 +10,7 @@
 .background-accueil-2{
     min-height: 100vh;
     margin: 0;
-    background-image: linear-gradient(rgba(8, 4, 14, 0.42), rgba(8, 4, 14, 0.72)), url("img/backgroundd-shop.png");
+    background-image: url("img/backgroundd-shop.png");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -18,7 +18,7 @@
 }
 .accueil-hero{
     min-height: 68vh;
-    background-image: linear-gradient(rgba(8, 4, 14, 0.28), rgba(8, 4, 14, 0.58)), url("img/backgrand-2.png");
+    background-image: url("img/backgrand-2.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -34,6 +34,15 @@
     min-height: 100vh;
     margin: 0;
     background-image: url("img/backgroundd-shop.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.background-arena{
+    min-height: 100vh;
+    margin: 0;
+    background-image: url("img/backgorund-arena.png");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
