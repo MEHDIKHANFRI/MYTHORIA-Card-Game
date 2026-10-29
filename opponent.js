@@ -1,0 +1,2 @@
+
+const jouer = document.querySelector

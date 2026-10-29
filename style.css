@@ -42,9 +42,9 @@
 .background-arena{
     min-height: 100vh;
     margin: 0;
-    background-image: url("img/backgorund-arena.png");
+    background-image: url("img/back-ground-arena.png");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-}
+}              
