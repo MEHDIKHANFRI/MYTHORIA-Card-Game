@@ -36,20 +36,25 @@
                 
             </div>
             <div id="carteChoisie" class="w-[100%]  grid row-span-5 items-stretch ">
-                <img class="w-[150px] mt-[50px] ml-[100px] h-[200px] text-center" src="img/backCarte.png" alt="">
+                <img class="w-[150px] mt-[50px] ml-[100px] h-[200px] text-center" src="img/cartesARENA.png" alt="">
                
                 <button id="boutonJouer"  class="flex justify-center items-center mt-[50px] ml-10 mr-20  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 ">Jouer</button>
                 <button id="boutonsDeck1" class="hidden w-[200px] justify-center items-center mt-[20px] ml-10 mr-[50px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LA LUMIERE</button>
                 <button id="boutonsDeck2" class="hidden w-[200px] flex justify-center items-center mt-[20px] ml-10 mr-[50px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LES TENEBRES </button>
-                <img class="w-[150px]  ml-[100px] mt-[80px] h-[200px]" src="img/backCarte.png" alt="">
+                <img class="w-[150px]  ml-[100px] mt-[80px] h-[200px]" src="img/cartesARENA.png" alt="">
             </div>
-            <div id="cartjoueur2" class="mt-[20px] w-[100%] col-span-2 items-stretch flex flex-wrap justify-between">
+            <div id="cartjoueur1" class="mt-[20px] w-[100%] col-span-2 items-stretch flex flex-wrap justify-center gap-[50px]">
                     
             </div>
-            <div id="arena" class="flex flex-col">
-                <p>jdnsdjns,lf,fkcjndsjknck</p>
+            <div id="arena" class="col-span-2 flex-col gap-5 justify-center h-[70%] border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">
+
+                
+                <p class="mt-[5px] text-[#ffd477] font-[Georgia,serif] text-[15px]  text-center  border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Points de vie de l'adversaire : <span id="hpAdverse">3000</span> HP</p>
+                <p id="resultat" class="text-[#ffd477] font-[Georgia,serif] text-[20px] text-center border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Le combat a commencé !</p>   
+                <p class="mt-[5px] text-[#ffd477] font-[Georgia,serif] text-[15px] text-center border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Vos points de vie : <span id="hpJoueur">3000</span> HP</p>
+                
             </div>
-            <div id="cartjoueur2" class="mb-[5px] w-[100%] col-span-2 items-stretch flex flex-wrap justify-between">
+            <div id="cartjoueur2" class="mb-[5px] w-[100%] col-span-2 items-stretch flex flex-wrap justify-center gap-[50px]">
                 
                     
             </div>
@@ -58,7 +63,9 @@
             </div>
         </section>
     </main>
+    <script src="javascript.js"></script>
     <script src="turns.js"></script>
     <script src="ui.js"></script>
+    
 </body>
 </html>
