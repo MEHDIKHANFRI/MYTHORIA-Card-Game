@@ -1,9 +1,9 @@
 const jouer = document.querySelector("main");
 let boutonJouer = document.querySelector("#boutonJouer");
-
 const tableauRandom = [1, 2];
 const boutonsDeck1 = document.querySelector("#boutonsDeck1");
 const boutonsDeck2 = document.querySelector("#boutonsDeck2");
+const boutonAreter = document.querySelector("#boutonAreter");
 let collectionDeck = localStorage.getItem("cartesDeck");
 
 if (collectionDeck === null) {
@@ -18,7 +18,12 @@ boutonJouer.addEventListener("click", e => {
   if (randomjouer === 1) {
     boutonsDeck1.classList.remove("hidden");
     boutonsDeck2.classList.remove("hidden");
+    boutonAreter.classList.remove("hidden");
+    boutonJouer.classList.add("hidden");
+
   } else {
+    boutonAreter.classList.remove("hidden");
+    boutonJouer.classList.add("hidden");
     for (let i = 0; i < collectionDeck.length; i++) {
       collectionDeck[i].pv = collectionDeck[i].pv * 80 / 100;
     }
@@ -48,4 +53,16 @@ boutonsDeck2.addEventListener("click", e => {
   localStorage.setItem("cards", JSON.stringify(cards));
   boutonsDeck1.classList.add("hidden");
   boutonsDeck2.classList.add("hidden");
+});
+boutonAreter.addEventListener("click" , e =>{
+  
+  boutonJouer.classList.remove("hidden");
+  boutonAreter.classList.add("hidden");
+  boutonsDeck1.classList.add("hidden");
+  boutonsDeck2.classList.add("hidden");
+  
+  document.querySelector("#jouer1").innerHTML = "";
+  document.querySelector("#jouer2").innerHTML = "";
+  document.querySelector("#cartjoueur1").innerHTML = "";
+  document.querySelector("#cartjoueur2").innerHTML = "";
 });
