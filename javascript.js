@@ -48,18 +48,28 @@ const panier = document.querySelector("#cartItems");
 const totalSpan = document.querySelector("#cartTotal");
 const compteur = document.querySelector("#cart");
 let total = 0;
-let boutonAcheter;
-let boutonVider;
+let boutonAcheter = document.querySelector("#Acheter");
+let boutonVider = document.querySelector("#Vider");
+
+
+const ouvrirPanier = document.querySelector("#ouvrirPanier");
+const fermerPanier = document.querySelector("#fermerPanier");
+const affichePanier = document.querySelector("#affichePanier");
+
+if (ouvrirPanier && affichePanier) {
+  ouvrirPanier.addEventListener("click", () => {
+    affichePanier.classList.remove("hidden");
+  });
+}
+
+if (fermerPanier && affichePanier) {
+  fermerPanier.addEventListener("click", () => {
+    affichePanier.classList.add("hidden");
+  });
+}
 
 const boutons = document.querySelectorAll("button");
-for (let i = 0; i < boutons.length; i++) {
-  if (boutons[i].textContent.trim() === "Acheter") {
-    boutonAcheter = boutons[i];
-  }
-  if (boutons[i].textContent.trim() === "Vider le panier") {
-    boutonVider = boutons[i];
-  }
-}
+
 
 function ajouterProduit(titre, prix, image) {
   const li = document.createElement("li");
