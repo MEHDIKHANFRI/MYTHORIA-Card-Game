@@ -79,4 +79,7 @@ boutonAreter.addEventListener("click" , e =>{
   document.querySelector("#defense2").innerHTML = "";
   document.querySelector("#jouer1").innerHTML = "";
   document.querySelector("#jouer2").innerHTML = "";
+  document.querySelector("#hpAdverse").textContent = 3000;
+  document.querySelector("#hpJoueur").textContent = 3000;
+  document.querySelector("#resultat").textContent = "Le combat a commencé !";
 });

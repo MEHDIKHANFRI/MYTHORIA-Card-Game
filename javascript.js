@@ -417,4 +417,3 @@ if (zoneDeck) {
   afficherCollection();
   afficherDeck();
 }
-

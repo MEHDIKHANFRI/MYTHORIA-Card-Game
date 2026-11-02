@@ -31,8 +31,8 @@ boutonJoue.addEventListener("click", (e) => {
       if(dejaAfficheCarte == false){
       cartesDejaAffichees.push(deck[nombre].id);
       const li = document.createElement("li");
-      li.className = "w-[100%] h-[150px]";
-      li.innerHTML ='<img src="' +deck[nombre].img +'" class="w-[100px] h-[150px] object-cover rounded-[14px]">';
+      li.className = "w-[100%] h-[150px] gap-2";
+      li.innerHTML ='<span class="text-[#ffd477] font-[Georgia,serif] text-[15px]"> A: ' + deck[nombre].attaque + '</span>' +'<span class="text-[#ffd477] font-[Georgia,serif] text-[15px]"> D: ' + deck[nombre].defense + '</span>' +'<img src="' + deck[nombre].img + '" class="w-[100px] h-[150px] object-cover rounded-[14px]">';
       li.setAttribute("idLi", deck[nombre].id);
       jouer2.appendChild(li);
       } else {
@@ -74,6 +74,7 @@ jouer2.addEventListener("click", e => {
         const imagee = document.createElement("img");
         imagee.src = cards[randomCarte].img;
         imagee.alt = cards[randomCarte].nom;
+        imagee.setAttribute("idCarte", cards[randomCarte].id);
         imagee.className = "w-[ 50px] h-[80px] object-cover rounded-[14px]";
         if (cards[randomCarte].attaque > cards[randomCarte].defense) {
         ataque1.appendChild(imagee);
