@@ -6,6 +6,9 @@ const boutonsDeck2 = document.querySelector("#boutonsDeck2");
 const boutonAreter = document.querySelector("#boutonAreter");
 let collectionDeck = localStorage.getItem("cartesDeck");
 const jouer1 = document.querySelector("#jouer1");
+const dialog = document.querySelector("#dialog");
+const messageDialog = document.querySelector("#messageDialog");
+const fermerDialog = document.querySelector("#fermerDialog");
 
 if (collectionDeck === null) {
   collectionDeck = [];
@@ -16,6 +19,9 @@ if (collectionDeck === null) {
 boutonJouer.addEventListener("click", e => {
   const randomjouer = Math.floor(Math.random() * tableauRandom.length);
   jouer1.innerHTML = "";
+  messageDialog.classList.add("hidden");
+  fermerDialog.classList.add("hidden");
+  
 
   for (let i = 0; i < 5; i++) {
     const image = document.createElement("img");
@@ -26,18 +32,27 @@ boutonJouer.addEventListener("click", e => {
 }
 
   if (randomjouer === 1) {
+    messageDialog.textContent = "Vous avez gagné le tirage au sort. Choisissez votre camp.";
+    messageDialog.classList.remove("hidden");
     boutonsDeck1.classList.remove("hidden");
     boutonsDeck2.classList.remove("hidden");
     boutonAreter.classList.remove("hidden");
     boutonJouer.classList.add("hidden");
+    dialog.showModal();
 
   } else {
+    boutonsDeck1.classList.add("hidden");
+    boutonsDeck2.classList.add("hidden");
     boutonAreter.classList.remove("hidden");
     boutonJouer.classList.add("hidden");
     for (let i = 0; i < collectionDeck.length; i++) {
       collectionDeck[i].pv = collectionDeck[i].pv * 80 / 100;
     }
     localStorage.setItem("cartesDeck", JSON.stringify(collectionDeck));
+    messageDialog.textContent = "Vous n'avez pas gagné le tirage au sort.";
+    messageDialog.classList.remove("hidden");
+    fermerDialog.classList.remove("hidden");
+    dialog.showModal();
   }
 });
 
@@ -51,6 +66,8 @@ boutonsDeck1.addEventListener("click", e => {
   localStorage.setItem("cards", JSON.stringify(cards));
   boutonsDeck1.classList.add("hidden");
   boutonsDeck2.classList.add("hidden");
+  messageDialog.classList.add("hidden");
+  dialog.close();
 });
 
 boutonsDeck2.addEventListener("click", e => {
@@ -63,23 +80,18 @@ boutonsDeck2.addEventListener("click", e => {
   localStorage.setItem("cards", JSON.stringify(cards));
   boutonsDeck1.classList.add("hidden");
   boutonsDeck2.classList.add("hidden");
+  messageDialog.classList.add("hidden");
+  dialog.close();
 });
 
-boutonAreter.addEventListener("click" , e =>{
-  boutonJouer.classList.remove("hidden");
-  boutonAreter.classList.add("hidden");
-  boutonsDeck1.classList.add("hidden");
-  boutonsDeck2.classList.add("hidden");
-  
- 
-  
-  document.querySelector("#ataque1").innerHTML = "";
-  document.querySelector("#defense1").innerHTML = "";
-   document.querySelector("#ataque2").innerHTML = "";
-  document.querySelector("#defense2").innerHTML = "";
-  document.querySelector("#jouer1").innerHTML = "";
-  document.querySelector("#jouer2").innerHTML = "";
-  document.querySelector("#hpAdverse").textContent = 3000;
-  document.querySelector("#hpJoueur").textContent = 3000;
-  document.querySelector("#resultat").textContent = "Le combat a commencé !";
+fermerDialog.addEventListener("click", e => {
+  dialog.close();
+  messageDialog.classList.add("hidden");
+  fermerDialog.classList.add("hidden");
 });
+
+dialog.addEventListener("cancel", e => {
+  e.preventDefault();
+  messageDialog.classList.remove("hidden");
+});
+

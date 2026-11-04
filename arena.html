@@ -16,7 +16,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="background-arena">
+        <dialog id="dialog" class="m-auto border-2 border-[#ffd477] rounded-[15px] bg-[#f6a928] p-5 text-[black]">
+            <p id="messageDialog" class="mb-3 text-center"></p>
+            <button id="boutonsDeck1" class="hidden w-[200px] justify-center items-center mt-[20px] ml-[80px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LA LUMIERE</button>
+            <button id="boutonsDeck2" class="hidden w-[200px] flex justify-center items-center mt-[20px] ml-[80px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LES TENEBRES </button>
+            <button id="fermerDialog" class="hidden mt-4 rounded border border-[#ffd477] px-4 py-2">OK</button>
+        </dialog>
     <header class="min-h-[76px] px-[30px] flex items-center justify-between gap-6  font-[Arial,sans-serif]">
         <nav>
             <ul class="flex items-center gap-7 m-0 p-0">
@@ -26,9 +33,6 @@
         <a class="mt-2 h-[80px] w-[150px] object-cover border-2 rounded-[14px] border-[#f6a928] shadow-[0_0_12px_#e58a16]" href="index.html" href="index.html"><img src="img/LOGO.png" alt=""></a>
     </header>
     <main>
-        <dialog>
-            
-        </dialog>
         <section class = "grid grid-cols-[450px_450px_150px] grid-row-[100px_50px_100px] ">
             <div id="jouer1" class="w-[100%] col-span-2 items-stretch flex justify-evenly">
                 
@@ -39,19 +43,17 @@
                
                 <button id="boutonJouer"  class="flex justify-center items-center mt-[10px] ml-10 mr-20  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 ">Jouer</button>
                 <button id="boutonAreter" class="hidden w-[200px] justify-center items-center mt-[20px] ml-[80px]   py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">Fin de la partie</button>
-                <button id="boutonsDeck1" class="hidden w-[200px] justify-center items-center mt-[20px] ml-[80px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LA LUMIERE</button>
-                <button id="boutonsDeck2" class="hidden w-[200px] flex justify-center items-center mt-[20px] ml-[80px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LES TENEBRES </button>
-
+                
                 <p id="HPutilisateur" class="ml-[40px] mt-[10px] p-2 w-[300px] text-[#ffd477] font-[Georgia,serif] text-[15px] text-center border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Vos points de vie : <span id="hpJoueur">3000</span> HP</p>
                 <img class="w-[150px]  ml-[100px] mt-[10px] h-[200px]" src="img/cartesARENA.png" alt="">
             </div>
-            <div id="cartjoueur1" class=" w-[100%] mb-[5px] col-span-2 items-stretch flex flex-col justify-center gap-[5px]">
+            <div id="cartjoueur1" class=" w-[100%] mb-[5px] mt-[5px] col-span-2 items-stretch flex flex-col justify-center gap-[5px]">
                     
-                    <div class="w-[100%] h-[83px]  border-[#f6a928] bg-[black] border-2 border-[#f6a928] rounded-[15px]">
+                    <div class="w-[100%] h-[83px]  ">
                         
                         <div id="defense1" class="flex flex-wrap justify-center gap-[20px] "></div>
                     </div>
-                    <div class="w-[100%] h-[83px]   bg-[black] border-2 border-[#f6a928] rounded-[15px]">
+                    <div class="w-[100%] h-[83px]   border-t-2 border-[#f6a928]">
                         
                         <div id="ataque1" class="flex flex-wrap justify-center gap-[20px]"></div>
                     </div>
@@ -66,13 +68,13 @@
                 
             </div>
             <div id="cartjoueur2" class="w-[100%] col-span-2 items-stretch flex flex-col mt-[5px] gap-[5px] justify-center">
-                <div class="w-[100%] h-[83px]  bg-[black] border-2 border-[#f6a928] rounded-[15px]">
+                <div class="w-[100%] h-[83px]   ">
                     
                     <div id="ataque2" class="flex flex-wrap justify-center gap-[20px]"></div>
                 </div>
-                <div class="w-[100%] h-[83px] border-[#f6a928] bg-[black] border-2 border-[#f6a928] rounded-[15px]">
+                <div class="w-[100%] h-[83px]  rounded-[15px]">
                     
-                <div id="defense2" class="flex flex-wrap justify-center gap-[20px] "></div>
+                <div id="defense2" class="flex flex-wrap justify-center gap-[20px] border-t-2 border-[#f6a928] "></div>
                 </div> 
             </div>
             <div class="col-span-2 flex flex-col justify-evenly">
