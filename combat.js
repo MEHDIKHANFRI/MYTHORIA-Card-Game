@@ -2,6 +2,44 @@ const HPadverse = document.querySelector("#hpAdverse");
 const HPutilisateur = document.querySelector("#hpJoueur");
 const resultat = document.querySelector("#resultat");
 
+function actualiseDeck() {
+  const lignes = jouer2.querySelectorAll("li");
+
+  for (let i = 0; i < lignes.length; i++) {
+    const idCarte = lignes[i].getAttribute("idLi");
+
+    for (let j = 0; j < deck.length; j++) {
+      if (deck[j].id == idCarte) {
+        const valeurs = lignes[i].querySelectorAll("span");
+        valeurs[0].textContent = "Attaque: " + deck[j].attaque;
+        valeurs[1].textContent = "Defense: " + deck[j].defense;
+      }
+    }
+  }
+}
+
+boutonsDeck1.addEventListener("click", e => {
+  for (let i = 0; i < deck.length; i++) {
+    if (deck[i].type === "voile" || deck[i].type === "ombres") {
+      deck[i].attaque = Math.floor(deck[i].attaque * 80 / 100);
+      deck[i].defense = Math.floor(deck[i].defense * 80 / 100);
+
+    }
+  }
+  localStorage.setItem("cartesDeck", JSON.stringify(deck));
+  actualiseDeck();
+});
+boutonsDeck2.addEventListener("click", e => {
+  for (let i = 0; i < deck.length; i++) {
+    if (deck[i].type === "gardiens" && deck[i].type === "royaumes") {
+      deck[i].attaque = Math.floor(deck[i].attaque * 80 / 100);
+      deck[i].defense = Math.floor(deck[i].defense * 80 / 100);
+    }
+  }
+  localStorage.setItem("cartesDeck", JSON.stringify(deck));
+  actualiserValeursDeck();
+});
+
 jouer2.addEventListener("click", e => {
   if (e.target.tagName === "IMG") {
     const idCarte = e.target.parentElement.getAttribute("idLi");
@@ -14,8 +52,6 @@ jouer2.addEventListener("click", e => {
       }
     }
 
-    const imagesAdverses = document.querySelector("#cartjoueur1").querySelectorAll("img");
-    const imagee = imagesAdverses[imagesAdverses.length - 1];
 
     
       const idCarteAdverse = imagee.getAttribute("idCarte");

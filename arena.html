@@ -18,8 +18,9 @@
 </head>
 
 <body class="background-arena">
-        <dialog id="dialog" class="m-auto border-2 border-[#ffd477] rounded-[15px] bg-[#f6a928] p-5 text-[black]">
+        <dialog id="dialog" class="m-auto w-[400px]  border-2 border-[#ffd477] rounded-[15px] bg-[#f6a928] p-5 text-[black]">
             <p id="messageDialog" class="mb-3 text-center"></p>
+            <button id="boutonJouer"  class="flex justify-center items-center w-[150px] ml-[100px]   py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 ">Jouer</button>
             <button id="boutonsDeck1" class="hidden w-[200px] justify-center items-center mt-[20px] ml-[80px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LA LUMIERE</button>
             <button id="boutonsDeck2" class="hidden w-[200px] flex justify-center items-center mt-[20px] ml-[80px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LES TENEBRES </button>
             <button id="fermerDialog" class="hidden mt-4 rounded border border-[#ffd477] px-4 py-2">OK</button>
@@ -41,7 +42,6 @@
                 <img class="w-[150px] mt-[50px] ml-[100px] h-[200px] text-center" src="img/cartesARENA.png" alt="">
                 <p id="HPadverse" class="ml-[40px] w-[300px] p-2 text-[#ffd477] font-[Georgia,serif] text-[15px]  text-center  border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Points de vie de l'adversaire : <span id="hpAdverse">3000</span> HP</p>
                
-                <button id="boutonJouer"  class="flex justify-center items-center mt-[10px] ml-10 mr-20  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 ">Jouer</button>
                 <button id="boutonAreter" class="hidden w-[200px] justify-center items-center mt-[20px] ml-[80px]   py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">Fin de la partie</button>
                 
                 <p id="HPutilisateur" class="ml-[40px] mt-[10px] p-2 w-[300px] text-[#ffd477] font-[Georgia,serif] text-[15px] text-center border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Vos points de vie : <span id="hpJoueur">3000</span> HP</p>

@@ -95,6 +95,7 @@ if (panier) {
 
       if (champQuantite.value === "" || quantite < 1) {
         quantite = 1;
+        champQuantite.value = 1;
       }
 
       const image = booster.parentElement.parentElement.querySelector("img").src;
