@@ -47,10 +47,7 @@ boutonJouer.addEventListener("click", e => {
     boutonsDeck2.classList.add("hidden");
     boutonAreter.classList.remove("hidden");
     boutonJouer.classList.add("hidden");
-    for (let i = 0; i < collectionDeck.length; i++) {
-      collectionDeck[i].pv = collectionDeck[i].pv * 80 / 100;
-    }
-    localStorage.setItem("cartesDeck", JSON.stringify(collectionDeck));
+    
     messageDialog.textContent = "Vous n'avez pas gagné le tirage au sort.";
     messageDialog.classList.remove("hidden");
     fermerDialog.classList.remove("hidden");
@@ -122,8 +119,8 @@ boutonAreter.addEventListener("click" , e =>{
   document.querySelector("#defense2").innerHTML = "";
   document.querySelector("#jouer1").innerHTML = "";
   document.querySelector("#jouer2").innerHTML = "";
-  document.querySelector("#hpAdverse").textContent = 3000;
-  document.querySelector("#hpJoueur").textContent = 3000;
+  document.querySelector("#hpAdverse").textContent = 2000;
+  document.querySelector("#hpJoueur").textContent = 2000;
   document.querySelector("#resultat").textContent = "Le combat a commencé !";
 });
 

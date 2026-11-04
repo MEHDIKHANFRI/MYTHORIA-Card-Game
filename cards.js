@@ -22,7 +22,7 @@ jouer2.addEventListener("click", e => {
 
          e.target.parentElement.remove();
   }
-}, true);
+});
  attaqueCARTE.addEventListener("click" , e=>{
     const image = document.createElement("img");
       image.src = ChoisieCarte.img;

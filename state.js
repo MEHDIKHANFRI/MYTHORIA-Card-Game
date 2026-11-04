@@ -15,8 +15,8 @@ carteBonus.addEventListener("click", e =>{
             if(dejaAfficheCarte == false){
             cartesDejaAffichees.push(deck[nombre].id);
             const li = document.createElement("li");
-            li.className = "w-[100%] h-[150px]";
-            li.innerHTML ='<img src="' +deck[nombre].img +'" class="w-[100px] h-[150px] object-cover rounded-[14px]">';
+            li.className = "w-[100%] h-[150px] transition-transform duration-200 hover:scale-110";
+            li.innerHTML ='<span class="text-[#ffd477] font-[Georgia,serif] text-[15px]"> Attaque: ' + deck[nombre].attaque + '</span>' +'<span class="text-[#ffd477] font-[Georgia,serif] text-[15px]"> Defense: ' + deck[nombre].defense + '</span>' +'<img src="' + deck[nombre].img + '" class="w-[100px] h-[150px] object-cover rounded-[14px]">';
             li.setAttribute("idLi", deck[nombre].id);
             jouer2.appendChild(li);
             }

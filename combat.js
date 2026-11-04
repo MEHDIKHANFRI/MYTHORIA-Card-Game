@@ -40,55 +40,71 @@ boutonsDeck2.addEventListener("click", e => {
   actualiserValeursDeck();
 });
 
-jouer2.addEventListener("click", e => {
-  if (e.target.tagName === "IMG") {
-    const idCarte = e.target.parentElement.getAttribute("idLi");
-    let ChoisieCarte ;
-    let randomCarte = -1;
+function lancerCombat() {
+  const imagesAdverses = document.querySelector("#cartjoueur1").querySelectorAll("img");
+  const imagee = imagesAdverses[imagesAdverses.length - 1];
+  const idCarteAdverse = imagee.getAttribute("idCarte");
+  let randomCarte = -1;
 
-    for (let i = 0; i < deck.length; i++) {
-      if (deck[i].id == idCarte) {
-        ChoisieCarte = deck[i];
-      }
+  for (let i = 0; i < cards.length; i++) {
+    if (cards[i].id == idCarteAdverse) {
+      randomCarte = i;
     }
-
-
-    
-      const idCarteAdverse = imagee.getAttribute("idCarte");
-      for (let i = 0; i < cards.length; i++) {
-        if (cards[i].id == idCarteAdverse) {
-          randomCarte = i;
-        }
-      }
-    
-
-    
-      let hpJoueur = parseInt(HPutilisateur.textContent, 10);
-      let hpAdverse = parseInt(HPadverse.textContent, 10);
-      const combat = 300;
-      let nouvelleHP = 0;
-
-      if (ChoisieCarte.attaque > cards[randomCarte].defense) {
-        nouvelleHP = hpAdverse - combat;
-        HPadverse.textContent = nouvelleHP;
-        resultat.textContent = "Le joueur a gagné !";
-      } else if (ChoisieCarte.defense > cards[randomCarte].attaque) {
-        nouvelleHP = hpAdverse - (combat / 2);
-        HPadverse.textContent = nouvelleHP;
-        resultat.textContent = "Le joueur a gagné !";
-      } else if (ChoisieCarte.attaque < cards[randomCarte].defense) {
-        nouvelleHP = hpJoueur - combat;
-        HPutilisateur.textContent = nouvelleHP;
-        resultat.textContent = "L'adversaire a gagné !";
-      } else if (ChoisieCarte.defense < cards[randomCarte].attaque) {
-        nouvelleHP = hpAdverse - (combat / 2);
-        HPadverse.textContent = nouvelleHP;
-        resultat.textContent = "L'adversaire a gagné !";
-      } else {
-        nouvelleHP = hpAdverse - 100;
-        HPadverse.textContent = nouvelleHP;
-        resultat.textContent = "null";
-      }
-    
   }
+
+  let hpJoueur = parseInt(HPutilisateur.textContent, 10);
+  let hpAdverse = parseInt(HPadverse.textContent, 10);
+  const combat = 300;
+  let nouvelleHP = 0;
+
+  if (ChoisieCarte.attaque > cards[randomCarte].defense) {
+    nouvelleHP = hpAdverse - combat;
+    HPadverse.textContent = nouvelleHP;
+    resultat.textContent = "Tu as gagné ce tour !";
+  } else if (ChoisieCarte.defense > cards[randomCarte].attaque) {
+    nouvelleHP = hpAdverse - (combat / 2);
+    HPadverse.textContent = nouvelleHP;
+    resultat.textContent = "Tu as gagné ce tour !";
+  } else if (ChoisieCarte.attaque < cards[randomCarte].defense) {
+    nouvelleHP = hpJoueur - combat;
+    HPutilisateur.textContent = nouvelleHP;
+    resultat.textContent = "L'adversaire a gagné !";
+  } else if (ChoisieCarte.defense < cards[randomCarte].attaque) {
+    nouvelleHP = hpJoueur - (combat / 2);
+    HPutilisateur.textContent = nouvelleHP;
+    resultat.textContent = "L'adversaire a remporté ce tour !";
+  } else {
+    nouvelleHP = hpAdverse - 100;
+    HPadverse.textContent = nouvelleHP;
+    HPutilisateur.textContent = nouvelleHP;
+    resultat.textContent = "Egalité !";
+  }
+
+  if (parseInt(HPadverse.textContent, 10) <= 0) {
+    HPadverse.textContent = 0;
+    resultat.textContent = "Tu as gagné la partie !";
+    boutonJouer.classList.add("hidden");
+    boutonsDeck1.classList.add("hidden");
+    boutonsDeck2.classList.add("hidden");
+    attaqueCARTE.classList.add("hidden");
+    defenseCARTE.classList.add("hidden");
+    jouer2.classList.add("pointer-events-none");
+  } else if (parseInt(HPutilisateur.textContent, 10) <= 0) {
+    HPutilisateur.textContent = 0;
+    resultat.textContent = "L'adversaire a gagné la partie !";
+    boutonJouer.classList.add("hidden");
+    boutonsDeck1.classList.add("hidden");
+    boutonsDeck2.classList.add("hidden");
+    attaqueCARTE.classList.add("hidden");
+    defenseCARTE.classList.add("hidden");
+    jouer2.classList.add("pointer-events-none");
+  }
+}
+
+
+attaqueCARTE.addEventListener("click", lancerCombat);
+defenseCARTE.addEventListener("click", lancerCombat);
+
+boutonAreter.addEventListener("click", e => {
+  jouer2.classList.remove("pointer-events-none");
 });
