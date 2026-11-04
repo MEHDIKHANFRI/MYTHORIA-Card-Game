@@ -26,11 +26,14 @@
         <a class="mt-2 h-[80px] w-[150px] object-cover border-2 rounded-[14px] border-[#f6a928] shadow-[0_0_12px_#e58a16]" href="index.html" href="index.html"><img src="img/LOGO.png" alt=""></a>
     </header>
     <main>
-        <section class = "grid grid-cols-3 grid-row-3 ">
+        <dialog>
+            
+        </dialog>
+        <section class = "grid grid-cols-[450px_450px_150px] grid-row-[100px_50px_100px] ">
             <div id="jouer1" class="w-[100%] col-span-2 items-stretch flex justify-evenly">
                 
             </div>
-            <div id="carteChoisie" class="w-[100%]  grid row-span-5 items-stretch ">
+            <div id="carteChoisie" class="w-[100%] h-auto  grid row-span-5 items-stretch ">
                 <img class="w-[150px] mt-[50px] ml-[100px] h-[200px] text-center" src="img/cartesARENA.png" alt="">
                 <p id="HPadverse" class="ml-[40px] w-[300px] p-2 text-[#ffd477] font-[Georgia,serif] text-[15px]  text-center  border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Points de vie de l'adversaire : <span id="hpAdverse">3000</span> HP</p>
                
@@ -42,17 +45,19 @@
                 <p id="HPutilisateur" class="ml-[40px] mt-[10px] p-2 w-[300px] text-[#ffd477] font-[Georgia,serif] text-[15px] text-center border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Vos points de vie : <span id="hpJoueur">3000</span> HP</p>
                 <img class="w-[150px]  ml-[100px] mt-[10px] h-[200px]" src="img/cartesARENA.png" alt="">
             </div>
-            <div id="cartjoueur1" class="mt-[20px] mb-[10px] w-[100%] col-span-2 items-stretch flex  justify-center gap-[20px]">
-                    <div class="w-[100%] h-auto  bg-[black] border-2 border-[#f6a928] rounded-[15px]">
-                        <p class="text-center text-[#ffd477] font-[Georgia,serif]">POSITION ATTAQUE</p>
-                        <div id="ataque1" class="flex flex-wrap justify-center gap-[50px]"></div>
+            <div id="cartjoueur1" class=" w-[100%] mb-[5px] col-span-2 items-stretch flex flex-col justify-center gap-[5px]">
+                    
+                    <div class="w-[100%] h-[83px]  border-[#f6a928] bg-[black] border-2 border-[#f6a928] rounded-[15px]">
+                        
+                        <div id="defense1" class="flex flex-wrap justify-center gap-[20px] "></div>
                     </div>
-                    <div class="w-[100%] border-[#f6a928] bg-[black] border-2 border-[#f6a928] rounded-[15px]">
-                        <p class="text-center text-[#ffd477] font-[Georgia,serif]">POSITION DIFFENSE</p>
-                        <div id="defense1" class="flex flex-wrap justify-center gap-[50px] "></div>
-                    </div> 
+                    <div class="w-[100%] h-[83px]   bg-[black] border-2 border-[#f6a928] rounded-[15px]">
+                        
+                        <div id="ataque1" class="flex flex-wrap justify-center gap-[20px]"></div>
+                    </div>
+                     
             </div>
-            <div id="arena" class=" mt-[30px] col-span-2 flex-col gap-5 justify-center h-[60%] ">
+            <div id="arena" class="w-[100%] col-span-2 items-stretch flex flex-col mt-[5px] gap-[5px] justify-center">
 
                 
                 
@@ -60,24 +65,31 @@
 
                 
             </div>
-            <div id="cartjoueur2" class="mb-[20px] mt-[20px] w-[100%] col-span-2 items-stretch flex  gap-[20px] justify-center ">
-                <div class="w-[100%] h-auto  bg-[black] border-2 border-[#f6a928] rounded-[15px]">
-                    <p class="text-center text-[#ffd477] font-[Georgia,serif]">POSITION ATTAQUE</p>
-                    <div id="ataque2" class="flex flex-wrap justify-center gap-[50px]"></div>
+            <div id="cartjoueur2" class="w-[100%] col-span-2 items-stretch flex flex-col mt-[5px] gap-[5px] justify-center">
+                <div class="w-[100%] h-[83px]  bg-[black] border-2 border-[#f6a928] rounded-[15px]">
+                    
+                    <div id="ataque2" class="flex flex-wrap justify-center gap-[20px]"></div>
                 </div>
-                <div class="w-[100%] border-[#f6a928] bg-[black] border-2 border-[#f6a928] rounded-[15px]">
-                    <p class="text-center text-[#ffd477] font-[Georgia,serif]">POSITION DIFFENSE</p>
-                <div id="defense2" class="flex flex-wrap justify-center gap-[50px] "></div>
+                <div class="w-[100%] h-[83px] border-[#f6a928] bg-[black] border-2 border-[#f6a928] rounded-[15px]">
+                    
+                <div id="defense2" class="flex flex-wrap justify-center gap-[20px] "></div>
                 </div> 
             </div>
-            <div id="jouer2" class="pl-[50px] w-[100%] col-span-2 items-stretch flex justify-evenly">
-            
+            <div class="col-span-2 flex flex-col justify-evenly">
+                <div class="flex items-center justify-center">
+                    <button id="attaqueCARTE" class="hidden hover:scale-110 text-[black] bg-[#f6a928] rounded-[5px] border-2 border-[#f6a928] font-[Georgia,serif] text-[15px]">Attaque</button>
+                    <button id="defenseCARTE" class="hidden hover:scale-110 rounded-[5px] border-2 border-[#f6a928] text-[black] bg-[#f6a928] font-[Georgia,serif] text-[15px]">Defense </button>
+                </div>
+                <div class="">
+                <div id="jouer2" class=" w-[100%] col-span-2 items-stretch flex justify-evenly"></div>
+                </div>
             </div>
         </section>
     </main>
     <script src="javascript.js"></script>
     <script src="turns.js"></script>
     <script src="ui.js"></script>
+    <script src="cards.js"></script>
     <script src="state.js"></script>
     <script src="combat.js"></script>
     
