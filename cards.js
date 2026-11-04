@@ -32,6 +32,7 @@ jouer2.addEventListener("click", e => {
     attaqueCARTE.classList.add("hidden");
     defenseCARTE.classList.add("hidden");
 
+    setTimeout(() => {
     const randomCarte = Math.floor(Math.random() * cards.length);
         const imagee = document.createElement("img");
         imagee.src = cards[randomCarte].img;
@@ -43,6 +44,7 @@ jouer2.addEventListener("click", e => {
       } else if (cards[randomCarte].defense > cards[randomCarte].attaque) {
         difense1.appendChild(imagee);
       }
+    }, 3000);
  })
 
  defenseCARTE.addEventListener("click" , e=>{
@@ -59,6 +61,7 @@ jouer2.addEventListener("click", e => {
     attaqueCARTE.classList.add("hidden");
     defenseCARTE.classList.add("hidden");
 
+    setTimeout(() => {
     const randomCarte = Math.floor(Math.random() * cards.length);
         const imagee = document.createElement("img");
         imagee.src = cards[randomCarte].img;
@@ -70,4 +73,5 @@ jouer2.addEventListener("click", e => {
       } else if (cards[randomCarte].defense > cards[randomCarte].attaque) {
         difense1.appendChild(imagee);
       }
+    }, 3000);
  })

@@ -1,6 +1,8 @@
 const HPadverse = document.querySelector("#hpAdverse");
 const HPutilisateur = document.querySelector("#hpJoueur");
 const resultat = document.querySelector("#resultat");
+const carteChoisie = document.querySelector("#carteChoisie");
+const images = carteChoisie.querySelectorAll("img");
 
 function actualiseDeck() {
   const lignes = jouer2.querySelectorAll("li");
@@ -31,13 +33,13 @@ boutonsDeck1.addEventListener("click", e => {
 });
 boutonsDeck2.addEventListener("click", e => {
   for (let i = 0; i < deck.length; i++) {
-    if (deck[i].type === "gardiens" && deck[i].type === "royaumes") {
+    if (deck[i].type === "gardiens" || deck[i].type === "royaumes") {
       deck[i].attaque = Math.floor(deck[i].attaque * 80 / 100);
       deck[i].defense = Math.floor(deck[i].defense * 80 / 100);
     }
   }
   localStorage.setItem("cartesDeck", JSON.stringify(deck));
-  actualiserValeursDeck();
+  actualiseDeck();
 });
 
 function lancerCombat() {
@@ -88,6 +90,10 @@ function lancerCombat() {
     boutonsDeck2.classList.add("hidden");
     attaqueCARTE.classList.add("hidden");
     defenseCARTE.classList.add("hidden");
+    jouer1.innerHTML = "";
+    for (let i = 0; i < images.length; i++) {
+    images[i].classList.add("hidden");
+    }
     jouer2.classList.add("pointer-events-none");
   } else if (parseInt(HPutilisateur.textContent, 10) <= 0) {
     HPutilisateur.textContent = 0;
@@ -98,12 +104,20 @@ function lancerCombat() {
     attaqueCARTE.classList.add("hidden");
     defenseCARTE.classList.add("hidden");
     jouer2.classList.add("pointer-events-none");
+    jouer1.innerHTML = "";
+    for (let i = 0; i < images.length; i++) {
+    images[i].classList.add("hidden");
+    }
   }
 }
 
 
-attaqueCARTE.addEventListener("click", lancerCombat);
-defenseCARTE.addEventListener("click", lancerCombat);
+attaqueCARTE.addEventListener("click", e => {
+  setTimeout(lancerCombat, 3000);
+});
+defenseCARTE.addEventListener("click", e => {
+  setTimeout(lancerCombat, 3000);
+});
 
 boutonAreter.addEventListener("click", e => {
   jouer2.classList.remove("pointer-events-none");

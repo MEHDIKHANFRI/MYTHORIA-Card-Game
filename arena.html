@@ -18,12 +18,12 @@
 </head>
 
 <body class="background-arena">
-        <dialog id="dialog" class="m-auto w-[400px]  border-2 border-[#ffd477] rounded-[15px] bg-[#f6a928] p-5 text-[black]">
-            <p id="messageDialog" class="mb-3 text-center"></p>
-            <button id="boutonJouer"  class="flex justify-center items-center w-[150px] ml-[100px]   py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 ">Jouer</button>
-            <button id="boutonsDeck1" class="hidden w-[200px] justify-center items-center mt-[20px] ml-[80px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LA LUMIERE</button>
-            <button id="boutonsDeck2" class="hidden w-[200px] flex justify-center items-center mt-[20px] ml-[80px]  py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">LES TENEBRES </button>
-            <button id="fermerDialog" class="hidden mt-4 rounded border border-[#ffd477] px-4 py-2">OK</button>
+        <dialog id="dialog" class="m-auto w-[400px] rounded-2xl border border-[#f6a928] bg-black from-[#29162e] to-[#100b17] p-6 text-[#ffd477] shadow-[0_0_35px_rgba(229,138,22,0.45)] backdrop:bg-black/80">
+            <p id="messageDialog" class="mb-5 min-h-6 text-center font-[Georgia,serif] text-lg leading-relaxed text-[#fff0c2]"></p>
+            <button id="boutonJouer" class="flex w-full  items-center justify-center rounded-xl border border-[#ffd477] bg-[#f6a928] px-6 py-3 font-[Georgia,serif] text-xl font-bold text-[#1a1020] shadow-[0_0_16px_rgba(246,169,40,0.45)] transition duration-200 hover:scale-105 ">Jouer</button>
+            <button id="boutonsDeck1" class="hidden flex w-full  items-center justify-center rounded-xl border border-[#ffd477] bg-[#f6a928] px-6 py-3 font-[Georgia,serif] text-xl font-bold text-[#1a1020] shadow-[0_0_16px_rgba(246,169,40,0.45)] transition duration-200 hover:scale-105">LA LUMIERE</button>
+            <button id="boutonsDeck2" class="hidden mt-2 flex w-full  items-center justify-center rounded-xl border border-[#ffd477] bg-[#f6a928] px-6 py-3 font-[Georgia,serif] text-xl font-bold text-[#1a1020] shadow-[0_0_16px_rgba(246,169,40,0.45)] transition duration-200 hover:scale-105">LES TENEBRES</button>
+            <button id="fermerDialog" class="hidden mt-4 rounded-lg border border-[#ffd477] bg-black px-6 py-2 font-[Georgia,serif] text-[#ffd477] transition hover:bg-black/70">OK</button>
         </dialog>
     <header class="min-h-[76px] px-[30px] flex items-center justify-between gap-6  font-[Arial,sans-serif]">
         <nav>
@@ -40,11 +40,11 @@
             </div>
             <div id="carteChoisie" class="w-[100%] h-auto  grid row-span-5 items-stretch ">
                 <img class="w-[150px] mt-[50px] ml-[100px] h-[200px] text-center" src="img/cartesARENA.png" alt="">
-                <p id="HPadverse" class="ml-[40px] w-[300px] p-2 text-[#ffd477] font-[Georgia,serif] text-[15px]  text-center  border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Points de vie de l'adversaire : <span id="hpAdverse">2000</span> HP</p>
+                <p id="HPadverse" class="ml-[40px] w-[300px] h-[50px] p-2 text-[#ffd477] font-[Georgia,serif] text-[15px]  text-center  border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Points de vie de l'adversaire : <span id="hpAdverse">2000</span> HP</p>
                
-                <button id="boutonAreter" class="hidden w-[200px] justify-center items-center mt-[20px] ml-[80px]   py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110">Fin de la partie</button>
+                <button id="boutonAreter" class="hidden ml-[80px]  flex w-[200px] h-[100px]  cursor-pointer items-center justify-center rounded-xl border border-[#f6a928] bg-black   px-5 py-3 text-center font-[Georgia,serif] text-lg font-bold text-[#ffd477] shadow-[0_0_16px_rgba(229,138,22,0.3)] transition duration-200 hover:scale-105">Fin de la partie</button>
                 
-                <p id="HPutilisateur" class="ml-[40px] mt-[10px] p-2 w-[300px] text-[#ffd477] font-[Georgia,serif] text-[15px] text-center border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Vos points de vie : <span id="hpJoueur">2000</span> HP</p>
+                <p id="HPutilisateur" class="ml-[40px] mt-[10px] p-2 w-[300px] h-[50px] text-[#ffd477] font-[Georgia,serif] text-[15px] text-center border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Vos points de vie : <span id="hpJoueur">2000</span> HP</p>
                 <img class="w-[150px]  ml-[100px] mt-[10px] h-[200px]" src="img/cartesARENA.png" alt="">
             </div>
             <div id="cartjoueur1" class=" w-[100%] mb-[5px] mt-[5px] col-span-2 items-stretch flex flex-col justify-center gap-[5px]">

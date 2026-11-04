@@ -26,12 +26,12 @@
                 <li><a class="min-w-[130px] sm:min-w-[150px] lg:min-w-[170px] px-2 sm:px-4 lg:px-6 py-3 lg:py-4 text-sm lg:text-base border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110" href="opening.html">Ouverture</a></li>
                 <li><a class="min-w-[130px] sm:min-w-[150px] lg:min-w-[170px] px-2 sm:px-4 lg:px-6 py-3 lg:py-4 text-sm lg:text-base border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110" href="collection.html">Grimoire</a></li>
                 <li><a class="min-w-[130px] sm:min-w-[150px] lg:min-w-[170px] px-2 sm:px-4 lg:px-6 py-3 lg:py-4 text-sm lg:text-base border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110" href="myDeck.html">Mon deck</a></li>
-                <li><a class="min-w-[170px] px-6 py-4 border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center  border-[#f6a928] shadow-[0_0_12px_#e58a16]" href="arena.html">Arena</a></li>
+                <li><a class="min-w-[130px] sm:min-w-[150px] lg:min-w-[170px] px-2 sm:px-4 px-6 lg:px-6 py-3 lg:py-4 text-sm lg:text-base border-2 rounded-[14px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-center border-[#f6a928] shadow-[0_0_12px_#e58a16]" href="arena.html">Arena</a></li>
             </ul>
         </nav>
         <div class="flex flex-col  px-[20px] gap-6 ">
             <button id="ouvrirPanier" type="button" class="w-[200px] rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-bold text-[#ffd477]">Mon panier (<span id="cart">0</span>)</button>
-            <div id="affichePanier" class="hidden fixed right-4 top-24 z-50  w-[340px]  overflow-y-auto rounded-[15px] border border-[#76552d] bg-[#171119] p-5 text-[#ffd477] shadow-[0_2px_12px_#000,0_0_20px_#e58a16]">
+            <div id="affichePanier" class="hidden fixed right-4 top-24 z-50 w-11 max-w-[340px] max-h-96 overflow-y-auto rounded-[15px] border border-[#76552d] bg-[#171119] p-4 sm:p-5 text-[#ffd477] shadow-[0_2px_12px_#000,0_0_20px_#e58a16]">
                 <div class="flex items-center justify-between border-b border-[#76552d] pb-3 font-[Georgia,serif]">
                     <h3 class="m-0 text-2xl font-bold text-[#f6a928]">Mon panier</h3>
                     <button id="fermerPanier" type="button" class="rounded bg-[#f6a928] px-2 font-bold text-black">×</button>
@@ -49,30 +49,30 @@
     </header>
     <main class="background-4">
         <section>
-            <h2 class="mx-auto -mt-0 w-fit rounded-xl border border-[#76552d] bg-[#171119] px-20 py-4 text-center font-[Georgia,serif] text-4xl font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">La Boutique Mythoria <br> Choisissez vos boosters</h2>
+            <h2 class="mx-auto w-fit max-w-full rounded-xl border border-[#76552d] bg-[#171119] px-4 py-3 text-center font-[Georgia,serif] text-2xl font-bold text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16] sm:px-8 sm:text-3xl lg:px-12 lg:py-4 lg:text-4xl">La Boutique Mythoria <br> Choisissez vos boosters</h2>
         </section>
     <section>
-        <div class="flex justify-center  gap-x-20  px-2 py-10">
-            <div class="flex flex-col justify-center px-[20px] gap-10 ">
+        <div class="grid grid-cols-1 justify-items-center gap-8 px-4 py-8 sm:grid-cols-2 lg:gap-12 lg:px-8 lg:py-10">
+            <div class="flex w-full max-w-[420px] flex-col justify-center gap-8">
                 <div>
-                    <img class="w-full h-[400px] object-contain" src="img/CARTE1 (2).png" alt="">
+                    <img class="h-64 w-full object-contain sm:h-72 lg:h-[400px]" src="img/CARTE1 (2).png" alt="">
                     <div class="w-full flex justify-center">
-                        <li class="booster-card min-w-[180px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 ">
+                        <li class="booster-card w-full max-w-[260px] px-4 py-4 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-base text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-105 sm:px-5 sm:py-5 sm:text-lg lg:text-xl inline-block m-0">
                             <span>dES OMBRES</span><br>
                             <span class="prix">60DH</span><br>
-                            <label>Quantité <br><input type="number" aria-label="Quantité du booster"></label><br>
+                            <label>Quantité <br><input class="w-20 rounded border border-[#76552d] bg-[#171119] px-2 py-1 text-center text-[#ffd477]" type="number" aria-label="Quantité du booster"></label><br>
                             <button class="ajouter mt-5 rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Ajouter</button>
                          
                         </li>
                     </div>
                 </div>
                 <div>
-                    <img class="w-full h-[400px] object-contain" src="img/CARTE22.png" alt="">
+                    <img class="h-64 w-full object-contain sm:h-72 lg:h-[400px]" src="img/CARTE22.png" alt="">
                     <div class="w-full flex justify-center">
-                        <li class="booster-card min-w-[180px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 ">
+                        <li class="booster-card w-full max-w-[260px] px-4 py-4 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-base text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-105 sm:px-5 sm:py-5 sm:text-lg lg:text-xl inline-block m-0">
                             <span>DES GARDIENS</span><br>
                             <span class="prix">40DH</span><br>
-                           <label>Quantité <br><input type="number" aria-label="Quantité du booster"></label><br>
+                           <label>Quantité <br><input class="w-20 rounded border border-[#76552d] bg-[#171119] px-2 py-1 text-center text-[#ffd477]" type="number" aria-label="Quantité du booster"></label><br>
                             <button class="ajouter mt-5 rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Ajouter</button>
                         </li>
                     </div>
@@ -81,14 +81,14 @@
             </div>
             
 
-            <div class="flex flex-col justify-center px-[20px] gap-10 ">
+            <div class="flex w-full max-w-[420px] flex-col justify-center gap-8">
                 <div>
-                    <img class="w-full h-[400px] object-contain" src="img/CARTE3.png" alt="">
+                    <img class="h-64 w-full object-contain sm:h-72 lg:h-[400px]" src="img/CARTE3.png" alt="">
                     <div class="w-full flex justify-center">
-                        <li class="booster-card min-w-[180px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 ">
+                        <li class="booster-card w-full max-w-[260px] px-4 py-4 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-base text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-105 sm:px-5 sm:py-5 sm:text-lg lg:text-xl inline-block m-0">
                             <span>DES ROYAUMES</span><br>
                             <span class="prix">50DH</span><br>
-                            <label>Quantité <br><input type="number" aria-label="Quantité du booster"></label><br>
+                            <label>Quantité <br><input class="w-20 rounded border border-[#76552d] bg-[#171119] px-2 py-1 text-center text-[#ffd477]" type="number" aria-label="Quantité du booster"></label><br>
                             <button class="ajouter mt-5 rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Ajouter</button>
  
                         </li>
@@ -96,12 +96,12 @@
                     
                 </div>
                 <div>
-                    <img class="w-full h-[400px] object-contain" src="img/CARTE44.png" alt="">
+                    <img class="h-64 w-full object-contain sm:h-72 lg:h-[400px]" src="img/CARTE44.png" alt="">
                     <div class="w-full flex justify-center">
-                        <li class="booster-card min-w-[180px] px-5 py-5 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-xl text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-110 inline-block m-0 ">
+                        <li class="booster-card w-full max-w-[260px] px-4 py-4 border-2 rounded-[15px] bg-[rgba(18,8,24,0.9)] text-[#ffd477] font-[Georgia,serif] text-base text-center transition-transform duration-200 border-[#f6a928] shadow-[0_0_12px_#e58a16] hover:scale-105 sm:px-5 sm:py-5 sm:text-lg lg:text-xl inline-block m-0">
                             <span>DU VOILE</span><br>
                             <span class="prix">30DH</span><br>
-                           <label>Quantité <br><input type="number" aria-label="Quantité du booster"></label><br>
+                           <label>Quantité <br><input class="w-20 rounded border border-[#76552d] bg-[#171119] px-2 py-1 text-center text-[#ffd477]" type="number" aria-label="Quantité du booster"></label><br>
                             <button class="ajouter mt-5 rounded-xl border border-[#76552d] bg-[#171119] px-5 py-4 text-center font-[Georgia,serif]font-bold  text-[#ffd477] [text-shadow:0_2px_12px_#000,0_0_20px_#e58a16]">Ajouter</button>
                            
                         </li>
