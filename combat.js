@@ -64,18 +64,10 @@ function lancerCombat() {
     nouvelleHP = hpAdverse - combat;
     HPadverse.textContent = nouvelleHP;
     resultat.textContent = "Tu as gagné ce tour !";
-  } else if (ChoisieCarte.defense > cards[randomCarte].attaque) {
-    nouvelleHP = hpAdverse - (combat / 2);
-    HPadverse.textContent = nouvelleHP;
-    resultat.textContent = "Tu as gagné ce tour !";
   } else if (ChoisieCarte.attaque < cards[randomCarte].defense) {
     nouvelleHP = hpJoueur - combat;
     HPutilisateur.textContent = nouvelleHP;
     resultat.textContent = "L'adversaire a gagné !";
-  } else if (ChoisieCarte.defense < cards[randomCarte].attaque) {
-    nouvelleHP = hpJoueur - (combat / 2);
-    HPutilisateur.textContent = nouvelleHP;
-    resultat.textContent = "L'adversaire a remporté ce tour !";
   } else {
     nouvelleHP = hpAdverse - 100;
     nouvelleHPNULL = hpJoueur - 100;
@@ -114,13 +106,79 @@ function lancerCombat() {
     }
   }
 }
+function lancerCombat2() {
+  const imagesAdverses = document.querySelector("#cartjoueur1").querySelectorAll("img");
+  const imagee = imagesAdverses[imagesAdverses.length - 1];
+  const idCarteAdverse = imagee.getAttribute("idCarte");
+  let randomCarte = -1;
+
+  for (let i = 0; i < cards.length; i++) {
+    if (cards[i].id == idCarteAdverse) {
+      randomCarte = i;
+    }
+  }
+
+  let hpJoueur = parseInt(HPutilisateur.textContent, 10);
+  let hpAdverse = parseInt(HPadverse.textContent, 10);
+  const combat = 300;
+  let nouvelleHP = 0;
+  let nouvelleHPNULL = 0;
+
+  if (ChoisieCarte.defense > cards[randomCarte].attaque) {
+    nouvelleHP = hpAdverse - (combat / 2);
+    HPadverse.textContent = nouvelleHP;
+    resultat.textContent = "Tu as gagné ce tour !";
+  }else if (ChoisieCarte.defense < cards[randomCarte].attaque) {
+    nouvelleHP = hpJoueur - (combat / 2);
+    HPutilisateur.textContent = nouvelleHP;
+    resultat.textContent = "L'adversaire a remporté ce tour !";
+  } else {
+    nouvelleHP = hpAdverse - 100;
+    nouvelleHPNULL = hpJoueur - 100;
+    HPadverse.textContent = nouvelleHP;
+    HPutilisateur.textContent = nouvelleHPNULL;
+    resultat.textContent = "Egalité !";
+  }
+
+  if (parseInt(HPadverse.textContent, 10) <= 0) {
+    dialogCARTE.close();
+    HPadverse.textContent = 0;
+    resultat.textContent = "Tu as gagné la partie !";
+    boutonJouer.classList.add("hidden");
+    boutonsDeck1.classList.add("hidden");
+    boutonsDeck2.classList.add("hidden");
+    attaqueCARTE.classList.add("hidden");
+    defenseCARTE.classList.add("hidden");
+    
+    jouer1.innerHTML = "";
+    for (let i = 0; i < images.length; i++) {
+    images[i].classList.add("hidden");
+    }
+    jouer2.classList.add("pointer-events-none");
+  } else if (parseInt(HPutilisateur.textContent, 10) <= 0) {
+    HPutilisateur.textContent = 0;
+    resultat.textContent = "L'adversaire a gagné la partie !";
+    dialogCARTE.close();
+    boutonJouer.classList.add("hidden");
+    boutonsDeck1.classList.add("hidden");
+    boutonsDeck2.classList.add("hidden");
+    attaqueCARTE.classList.add("hidden");
+    defenseCARTE.classList.add("hidden");
+    
+    jouer2.classList.add("pointer-events-none");
+    jouer1.innerHTML = "";
+    for (let i = 0; i < images.length; i++) {
+    images[i].classList.add("hidden");
+    }
+  }
+}
 
 
 attaqueCARTE.addEventListener("click", e => {
   setTimeout(lancerCombat, 2000);
 });
 defenseCARTE.addEventListener("click", e => {
-  setTimeout(lancerCombat, 2000);
+  setTimeout(lancerCombat2, 2000);
 });
 
 boutonAreter.addEventListener("click", e => {

@@ -13,6 +13,7 @@ if (deck === null) {
   deck = JSON.parse(deck);
 }
 boutonJoue.addEventListener("click", (e) => {
+  
   jouer2.innerHTML = "";
   cartesDejaAffichees = [];
   

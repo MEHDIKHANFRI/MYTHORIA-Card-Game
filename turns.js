@@ -86,6 +86,10 @@ dialog.addEventListener("cancel", e => {
 });
 boutonAreter.addEventListener("click" , e =>{
   dialogCARTE.close();
+  dialog.showModal();
+  for (let i = 0; i < images.length; i++) {
+    images[i].classList.remove("hidden");
+    }
   boutonJouer.classList.remove("hidden");
   boutonAreter.classList.add("hidden");
   boutonsDeck1.classList.add("hidden");
