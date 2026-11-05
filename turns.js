@@ -1,6 +1,10 @@
+window.addEventListener("beforeunload", e => {
+    e.preventDefault();
+});
 const jouer = document.querySelector("main");
 let boutonJouer = document.querySelector("#boutonJouer");
 const tableauRandom = [1, 2];
+const tableauTYPE = [1, 2];
 const boutonsDeck1 = document.querySelector("#boutonsDeck1");
 const boutonsDeck2 = document.querySelector("#boutonsDeck2");
 const boutonAreter = document.querySelector("#boutonAreter");
@@ -62,6 +66,16 @@ boutonJouer.addEventListener("click", e => {
     messageDialog.textContent = "Vous n'avez pas gagné le tirage au sort.";
     messageDialog.classList.remove("hidden");
     fermerDialog.classList.remove("hidden");
+
+    const randomTYPE = Math.floor(Math.random() * tableauRandom.length);
+    if(randomTYPE == 1){
+      TYPE2.textContent = "LUMIERE";
+      TYPE1.textContent = "TENEBRES";
+    }else{
+      TYPE2.textContent = "TENEBRES";
+      TYPE1.textContent = "LUMIERE";
+    }
+
     dialog.showModal();
   }
 });
