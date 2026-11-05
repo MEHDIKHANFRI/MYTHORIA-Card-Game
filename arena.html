@@ -42,7 +42,7 @@
                 <img class="w-[150px] mt-[50px] ml-[100px] h-[200px] text-center" src="img/cartesARENA.png" alt="">
                 <p id="HPadverse" class="ml-[40px] w-[300px] h-[50px] p-2 text-[#ffd477] font-[Georgia,serif] text-[15px]  text-center  border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Points de vie de l'adversaire : <span id="hpAdverse">2000</span> HP</p>
                
-                <button id="boutonAreter" class="hidden ml-[80px]  flex w-[200px] h-[100px]  cursor-pointer items-center justify-center rounded-xl border border-[#f6a928] bg-black   px-5 py-3 text-center font-[Georgia,serif] text-lg font-bold text-[#ffd477] shadow-[0_0_16px_rgba(229,138,22,0.3)] transition duration-200 hover:scale-105">Fin de la partie</button>
+                <button id="boutonAreter" class="hidden ml-[80px] flex w-[200px] h-[100px]  cursor-pointer items-center justify-center rounded-xl border border-[#f6a928] bg-black   px-5 py-3 text-center font-[Georgia,serif] text-lg font-bold text-[#ffd477] shadow-[0_0_16px_rgba(229,138,22,0.3)] transition duration-200 hover:scale-105">Fin de la partie</button>
                 
                 <p id="HPutilisateur" class="ml-[40px] mt-[10px] p-2 w-[300px] h-[50px] text-[#ffd477] font-[Georgia,serif] text-[15px] text-center border-2 border-[#f6a928] rounded-[15px] bg-[rgba(18,8,24,0.9)]">Vos points de vie : <span id="hpJoueur">2000</span> HP</p>
                 <img class="w-[150px]  ml-[100px] mt-[10px] h-[200px]" src="img/cartesARENA.png" alt="">
@@ -78,10 +78,10 @@
                 </div> 
             </div>
             <div class="col-span-2 flex flex-col justify-evenly mb-[20px]">
-                <div class="flex items-center justify-center">
-                    <button id="attaqueCARTE" class="hidden hover:scale-110 text-[black] bg-[#f6a928] rounded-[5px] border-2 border-[#f6a928] font-[Georgia,serif] text-[15px]">Attaque</button>
-                    <button id="defenseCARTE" class="hidden hover:scale-110 rounded-[5px] border-2 border-[#f6a928] text-[black] bg-[#f6a928] font-[Georgia,serif] text-[15px]">Defense </button>
-                </div>
+                 <dialog id="dialogCARTE" class="m-auto w-[400px] rounded-2xl border border-[#f6a928] bg-black from-[#29162e] to-[#100b17] p-6 text-[#ffd477] shadow-[0_0_35px_rgba(229,138,22,0.45)] backdrop:bg-black/80">
+                    <button id="attaqueCARTE" class="ml-[100px] hover:scale-110 text-[black] bg-[#f6a928] rounded-[5px] border-2 border-[#f6a928] font-[Georgia,serif] text-[15px]">Attaque</button>
+                    <button id="defenseCARTE" class="hover:scale-110 rounded-[5px] border-2 border-[#f6a928] text-[black] bg-[#f6a928] font-[Georgia,serif] text-[15px]">Defense </button>
+                </dialog>
                 <div class="">
                 <div id="jouer2" class=" w-[100%] ml-[50px]  col-span-2 items-stretch flex justify-evenly"></div>
                 </div>

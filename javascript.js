@@ -57,13 +57,13 @@ const fermerPanier = document.querySelector("#fermerPanier");
 const affichePanier = document.querySelector("#affichePanier");
 
 if (ouvrirPanier && affichePanier) {
-  ouvrirPanier.addEventListener("click", () => {
+  ouvrirPanier.addEventListener("click", e => {
     affichePanier.classList.remove("hidden");
   });
 }
 
 if (fermerPanier && affichePanier) {
-  fermerPanier.addEventListener("click", () => {
+  fermerPanier.addEventListener("click", e => {
     affichePanier.classList.add("hidden");
   });
 }

@@ -58,6 +58,7 @@ function lancerCombat() {
   let hpAdverse = parseInt(HPadverse.textContent, 10);
   const combat = 300;
   let nouvelleHP = 0;
+  let nouvelleHPNULL = 0;
 
   if (ChoisieCarte.attaque > cards[randomCarte].defense) {
     nouvelleHP = hpAdverse - combat;
@@ -77,8 +78,9 @@ function lancerCombat() {
     resultat.textContent = "L'adversaire a remporté ce tour !";
   } else {
     nouvelleHP = hpAdverse - 100;
+    nouvelleHPNULL = hpJoueur - 100;
     HPadverse.textContent = nouvelleHP;
-    HPutilisateur.textContent = nouvelleHP;
+    HPutilisateur.textContent = nouvelleHPNULL;
     resultat.textContent = "Egalité !";
   }
 
@@ -90,6 +92,7 @@ function lancerCombat() {
     boutonsDeck2.classList.add("hidden");
     attaqueCARTE.classList.add("hidden");
     defenseCARTE.classList.add("hidden");
+    
     jouer1.innerHTML = "";
     for (let i = 0; i < images.length; i++) {
     images[i].classList.add("hidden");
@@ -103,6 +106,7 @@ function lancerCombat() {
     boutonsDeck2.classList.add("hidden");
     attaqueCARTE.classList.add("hidden");
     defenseCARTE.classList.add("hidden");
+    
     jouer2.classList.add("pointer-events-none");
     jouer1.innerHTML = "";
     for (let i = 0; i < images.length; i++) {
@@ -113,10 +117,10 @@ function lancerCombat() {
 
 
 attaqueCARTE.addEventListener("click", e => {
-  setTimeout(lancerCombat, 3000);
+  setTimeout(lancerCombat, 2000);
 });
 defenseCARTE.addEventListener("click", e => {
-  setTimeout(lancerCombat, 3000);
+  setTimeout(lancerCombat, 2000);
 });
 
 boutonAreter.addEventListener("click", e => {

@@ -85,15 +85,14 @@ dialog.addEventListener("cancel", e => {
   messageDialog.classList.remove("hidden");
 });
 boutonAreter.addEventListener("click" , e =>{
-  dialog.showModal();
+  dialogCARTE.close();
   boutonJouer.classList.remove("hidden");
   boutonAreter.classList.add("hidden");
   boutonsDeck1.classList.add("hidden");
   boutonsDeck2.classList.add("hidden");
   messageDialog.classList.add("hidden");
   fermerDialog.classList.add("hidden");
-  attaqueCARTE.classList.add("hidden");
-  defenseCARTE.classList.add("hidden");
+  
 
   let deckSauvegarde = localStorage.getItem("cartesDeck");
   if (deckSauvegarde !== null) {

@@ -2,6 +2,7 @@ const carteJouer = document.querySelector("#cartjoueur2");
 const carteJouer2 = document.querySelector("#cartjoueur1");
 const defenseCARTE = document.querySelector("#defenseCARTE");
 const attaqueCARTE = document.querySelector("#attaqueCARTE");
+const dialogCARTE = document.querySelector("#dialogCARTE");
 let IDCARTE ;
 let ChoisieCarte;
 jouer2.addEventListener("click", e => {
@@ -11,8 +12,7 @@ jouer2.addEventListener("click", e => {
     IDCARTE = idCarte;
     
     
-        attaqueCARTE.classList.remove("hidden");
-        defenseCARTE.classList.remove("hidden");
+        dialogCARTE.showModal();
 
         for (let i = 0; i < deck.length; i++) {
       if (deck[i].id == idCarte) {
@@ -29,8 +29,7 @@ jouer2.addEventListener("click", e => {
       image.alt = ChoisieCarte.nom;
       image.className = "w-[50px] h-[80px] object-cover rounded-[14px]";
       ataque2.appendChild(image);
-    attaqueCARTE.classList.add("hidden");
-    defenseCARTE.classList.add("hidden");
+    dialogCARTE.close();
 
     setTimeout(() => {
     const randomCarte = Math.floor(Math.random() * cards.length);
@@ -44,8 +43,8 @@ jouer2.addEventListener("click", e => {
       } else if (cards[randomCarte].defense > cards[randomCarte].attaque) {
         difense1.appendChild(imagee);
       }
-    }, 3000);
- })
+    });
+ },2000)
 
  defenseCARTE.addEventListener("click" , e=>{
     for (let i = 0; i < deck.length; i++) {
@@ -58,8 +57,7 @@ jouer2.addEventListener("click", e => {
       image.alt = ChoisieCarte.nom;
       image.className = "w-[50px] h-[80px] object-cover rounded-[14px]";
       difense2.appendChild(image);
-    attaqueCARTE.classList.add("hidden");
-    defenseCARTE.classList.add("hidden");
+    dialogCARTE.close();
 
     setTimeout(() => {
     const randomCarte = Math.floor(Math.random() * cards.length);
@@ -73,5 +71,5 @@ jouer2.addEventListener("click", e => {
       } else if (cards[randomCarte].defense > cards[randomCarte].attaque) {
         difense1.appendChild(imagee);
       }
-    }, 3000);
+    },2000);
  })
