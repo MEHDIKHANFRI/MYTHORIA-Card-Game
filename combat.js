@@ -21,23 +21,41 @@ function actualiseDeck() {
 }
 
 boutonsDeck1.addEventListener("click", e => {
+  e.preventDefault();
   for (let i = 0; i < deck.length; i++) {
     if (deck[i].type === "voile" || deck[i].type === "ombres") {
       deck[i].attaque = Math.floor(deck[i].attaque * 80 / 100);
       deck[i].defense = Math.floor(deck[i].defense * 80 / 100);
-
     }
   }
+
+  for (let i = 0; i < cards.length; i++) {
+    if (cards[i].type === "gardiens" || cards[i].type === "royaumes") {
+      cards[i].attaque = Math.floor(cards[i].attaque * 80 / 100);
+      cards[i].defense = Math.floor(cards[i].defense * 80 / 100);
+    }
+  }
+
   localStorage.setItem("cartesDeck", JSON.stringify(deck));
   actualiseDeck();
 });
+
 boutonsDeck2.addEventListener("click", e => {
+  e.preventDefault();
   for (let i = 0; i < deck.length; i++) {
     if (deck[i].type === "gardiens" || deck[i].type === "royaumes") {
       deck[i].attaque = Math.floor(deck[i].attaque * 80 / 100);
       deck[i].defense = Math.floor(deck[i].defense * 80 / 100);
     }
   }
+
+  for (let i = 0; i < cards.length; i++) {
+    if (cards[i].type === "voile" || cards[i].type === "ombres") {
+      cards[i].attaque = Math.floor(cards[i].attaque * 80 / 100);
+      cards[i].defense = Math.floor(cards[i].defense * 80 / 100);
+    }
+  }
+
   localStorage.setItem("cartesDeck", JSON.stringify(deck));
   actualiseDeck();
 });

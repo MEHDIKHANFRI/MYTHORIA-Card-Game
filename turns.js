@@ -9,6 +9,17 @@ const jouer1 = document.querySelector("#jouer1");
 const dialog = document.querySelector("#dialog");
 const messageDialog = document.querySelector("#messageDialog");
 const fermerDialog = document.querySelector("#fermerDialog");
+const TYPE1 = document.querySelector("#TYPE1");
+const TYPE2 = document.querySelector("#TYPE2");
+let cardsOriginales = [];
+
+for (let i = 0; i < cards.length; i++) {
+  cardsOriginales.push({
+    id: cards[i].id,
+    attaque: cards[i].attaque,
+    defense: cards[i].defense
+  });
+}
 
 if (collectionDeck === null) {
   collectionDeck = [];
@@ -57,7 +68,8 @@ boutonJouer.addEventListener("click", e => {
 
 boutonsDeck1.addEventListener("click", e => {
   
-
+  TYPE2.textContent = "LUMIERE";
+  TYPE1.textContent = "TENEBRES";
   localStorage.setItem("cards", JSON.stringify(cards));
   boutonsDeck1.classList.add("hidden");
   boutonsDeck2.classList.add("hidden");
@@ -67,6 +79,8 @@ boutonsDeck1.addEventListener("click", e => {
 
 boutonsDeck2.addEventListener("click", e => {
   
+  TYPE2.textContent = "TENEBRES";
+  TYPE1.textContent = "LUMIERE";
   localStorage.setItem("cards", JSON.stringify(cards));
   boutonsDeck1.classList.add("hidden");
   boutonsDeck2.classList.add("hidden");
@@ -87,6 +101,12 @@ dialog.addEventListener("cancel", e => {
 boutonAreter.addEventListener("click" , e =>{
   dialogCARTE.close();
   dialog.showModal();
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].attaque = cardsOriginales[i].attaque;
+    cards[i].defense = cardsOriginales[i].defense;
+  }
+  localStorage.setItem("cards", JSON.stringify(cards));
+
   for (let i = 0; i < images.length; i++) {
     images[i].classList.remove("hidden");
     }
